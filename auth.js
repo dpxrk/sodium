@@ -14,12 +14,6 @@ const logoutUser = (req, res) => {
   delete req.session.auth;
 }
 
-const requireAuth = (req, res, next) => {
-  if (!res.locals.authenticated) {
-    return res.redirect('/user/login');
-  }
-  return next();
-};
 
 function generateUserToken(user) {
   const payload = { id: user.id, email: user.email }
