@@ -32,7 +32,7 @@ app.use(
   })
 );
 
-// create Session table if it doesn't already exist
+// create Session table if it doesn't already exists
 store.sync();
 
 app.use('/', indexRouter);

@@ -27,7 +27,7 @@ function requireAuth(req, res, next) {
   const { token } = req;
 
   if (!token) {
-    const error = new Error('User does not exist. Please register')
+    const error = new Error('User does not exists. Please register')
     error.status = 404;
     return next(error)
   }
