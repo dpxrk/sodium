@@ -1,3 +1,61 @@
+/* navlogo {
+    
+} */
+
+.page-wrap {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.bg {
+    background-color: #012365;
+
+}
+
+.nav-links{
+    font-family: Montserrat;
+    display: flex;
+    padding: 0 10px;
+    width: 400px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+button {
+    font-family: Montserrat;
+    font-weight: 700;
+    height: 2em;
+    padding: 0 20px;
+    margin: 0 10px;
+    
+    
+}
+
+.navlogo {
+    box-sizing: content-box;
+    max-height: 30px;
+    padding: 5px;
+}
+
+.avatar-nav {
+    border-radius: 20px;
+}
+
+nav {
+    background-color: #012365;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-family: Montserrat;
+    font-weight: 600;
+    position: sticky;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1024px;
+}
+
+
 
 p {
     font-family: Montserrat;
