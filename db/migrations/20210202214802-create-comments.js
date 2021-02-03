@@ -18,7 +18,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: { model: "Articles" }
       },
-      contents: {
+      content: {
         allowNull: false,
         type: Sequelize.TEXT
       },

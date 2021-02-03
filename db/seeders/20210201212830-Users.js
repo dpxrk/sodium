@@ -1,11 +1,11 @@
 'use strict';
 const faker = require('faker');
 const avatar = require('give-me-an-avatar');
-const { bcrypt } = require('../../routes/users');
-
-//TODO add async to seeder for await use
+const bcrypt = require('bcryptjs');
 
 module.exports = {
+
+
   up: async (queryInterface, Sequelize) => {
 
     //Initial users array with 'demo user' included
