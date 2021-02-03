@@ -1,3 +1,11 @@
+
+p {
+    font-family: Montserrat;
+    font-weight: 400;
+}
+
 h1 {
-    color: #555555;
+    font-family: Montserrat;
+    font-weight: 600;
+    color: #000000;
 }
