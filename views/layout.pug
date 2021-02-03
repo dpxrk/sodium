@@ -1,11 +1,24 @@
 doctype html
 html
   head
-      block head
-        title="Sodium"
-        link(rel='stylesheet' href='/stylesheets/reset.css')
-        link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat')
-        script(src="https://kit.fontawesome.com/75a2f1fb3a.js" crossorigin="anonymous")
-  body
-    // Add Nav here... with conditional statement within the nav block 'authenticated: true/false' 
-    block content
+    block head
+    title="Sodium"
+    link(rel='stylesheet' href='/stylesheets/reset.css')
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat')
+    link(rel="stylesheet" href="/stylesheets/index.css")
+    script(src="https://kit.fontawesome.com/75a2f1fb3a.js" crossorigin="anonymous")
+  body  
+  header.bg 
+    nav.page-wrap 
+      div 
+        img.navlogo(src="/images/whitelogo.png", alt="")
+      //not logged in
+      div.nav-links 
+        button  Demo 
+        button  Register
+        button  Login
+      //logged in
+      //different buttons
+        
+  div.page-wrap
+    block content 
