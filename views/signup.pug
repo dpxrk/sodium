@@ -1,9 +1,6 @@
-doctype html
-html
-  head
-      block head
-        title="Sodium"
-        link(rel='stylesheet' href='/stylesheets/reset.css')
+extends layout.pug
+
+block content
   body
     form(action="/signup" method="POST")
       input(type='hidden' name='_csrf' value=csrfToken)
@@ -27,4 +24,3 @@ html
         input(type='number', required)
       div
         button(type='submit') Create User
-    block content

@@ -9,10 +9,10 @@ module.exports = (sequelize, DataTypes) => {
     phoneNumber: { allowNull: false, type: DataTypes.NUMERIC },
     intro: DataTypes.TEXT
   }, {});
-  User.associate = function(models) {
-    User.hasMany(models.Salt, {foreignKey: "userId"});
-    User.hasMany(models.Article, {foreignKey: "userId"});
-    User.hasMany(models.Comment, {foreignKey: "userId"});
+  User.associate = function (models) {
+    User.hasMany(models.Salt, { foreignKey: "userId" });
+    User.hasMany(models.Article, { foreignKey: "authorId" });
+    User.hasMany(models.Comment, { foreignKey: "userId" });
   };
   return User;
 };
