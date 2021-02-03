@@ -2,22 +2,25 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Categories', {
-      id: {
+      categoryId: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
       type: {
+        allowNull: false,
         type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now")
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now")
       }
     });
   },

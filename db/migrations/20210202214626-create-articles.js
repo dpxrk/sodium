@@ -2,28 +2,34 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Articles', {
-      id: {
+      articleId: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
       authorId: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: "Users" }
       },
       title: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING(500)
       },
       content: {
+        allowNull: false,
         type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now")
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now")
       }
     });
   },

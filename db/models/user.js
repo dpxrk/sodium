@@ -1,16 +1,18 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
-    email: DataTypes.STRING,
-    passwordHash: DataTypes.STRING,
-    profileImage: DataTypes.INTEGER,
-    phoneNumber: DataTypes.NUMERIC,
+    firstName: { allowNull: false, type: DataTypes.STRING },
+    lastName: { allowNull: false, type: DataTypes.STRING },
+    email: { allowNull: false, type: DataTypes.STRING },
+    passwordHash: { allowNull: false, type: DataTypes.STRING },
+    profileImage: { type: DataTypes.INTEGER },
+    phoneNumber: { allowNull: false, type: DataTypes.NUMERIC },
     intro: DataTypes.TEXT
   }, {});
   User.associate = function(models) {
-    // associations can be defined here
+    User.hasMany(models.Salt, {foreignKey: "userId"});
+    User.hasMany(models.Article, {foreignKey: "userId"});
+    User.hasMany(models.Comment, {foreignKey: "userId"});
   };
   return User;
 };

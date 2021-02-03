@@ -23,10 +23,10 @@ module.exports = {
       },
       passwordHash: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING.BINARY
       },
       profileImage: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       phoneNumber: {
         allowNull: false,
@@ -35,13 +35,15 @@ module.exports = {
       intro: {
         type: Sequelize.TEXT
       },
-      registeredAt: {
+      createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now")
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now")
       }
     });
   },

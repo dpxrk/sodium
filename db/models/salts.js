@@ -1,11 +1,12 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Salts = sequelize.define('Salts', {
-    articleId: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER
+  const Salt = sequelize.define('Salt', {
+    articleId: { allowNull: false, type: DataTypes.INTEGER, references: { model: "Articles" }},
+    userId: { allowNull: false, type: DataTypes.INTEGER, refernces: { model: "Users" }},
   }, {});
-  Salts.associate = function(models) {
-    // associations can be defined here
+  Salt.associate = function(models) {
+    Salt.belongsTo(models.Articles, { foreignKey: "articleId" });
+    Salt.belongsTo(models.Users, { foreignKey: "userId" });
   };
-  return Salts;
+  return Salt;
 };

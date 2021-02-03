@@ -1,10 +1,15 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Categories = sequelize.define('Categories', {
+  const Category = sequelize.define('Category', {
     type: DataTypes.TEXT
   }, {});
-  Categories.associate = function(models) {
-    // associations can be defined here
+  Category.associate = function(models) {
+    Category.hasOne(models.Article_category, { foreignKey: "categoryId" });
+    Category.belongsToMany(model.Article, {
+      through: Article_category, 
+      otherKey: "articlesId", 
+      foreignKey: "categoryId"
+    })
   };
-  return Categories;
+  return Category;
 };
