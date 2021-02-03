@@ -5,8 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     userId: { allowNull: false, type: DataTypes.INTEGER, refernces: { model: "Users" }},
   }, {});
   Salt.associate = function(models) {
-    Salt.belongsTo(models.Articles, { foreignKey: "articleId" });
-    Salt.belongsTo(models.Users, { foreignKey: "userId" });
+    Salt.belongsTo(models.Article, { foreignKey: "articleId" });
+    Salt.belongsTo(models.User, { foreignKey: "userId" });
   };
   return Salt;
 };
