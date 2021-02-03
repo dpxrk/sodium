@@ -6,7 +6,7 @@ const { bcrypt } = require('../../routes/users');
 //TODO add async to seeder for await use
 
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: async (queryInterface, Sequelize) => {
 
     //Initial users array with 'demo user' included
 
