@@ -6,10 +6,10 @@ module.exports = (sequelize, DataTypes) => {
     content: { allowNull: false, type: DataTypes.TEXT },
   }, {});
   Article.associate = function(models) {
-    Article.hasOne(models.Comment, { foreignKey: "articleId"});
+    Article.hasMany(models.Comment, { foreignKey: "articleId"});
     Article.hasMany(models.Salt, { foreignKey: "articleId" });
     Article.belongsToMany(models.Category, {
-      through: Article_category, 
+      through: "Article_category", 
       otherKey: "categoryId", 
       foreignKey: "articleId"
     })

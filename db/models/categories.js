@@ -4,10 +4,10 @@ module.exports = (sequelize, DataTypes) => {
     type: DataTypes.TEXT
   }, {});
   Category.associate = function(models) {
-    Category.hasOne(models.Article_category, { foreignKey: "categoryId" });
-    Category.belongsToMany(model.Article, {
-      through: Article_category, 
-      otherKey: "articlesId", 
+    Category.hasMany(models.Article_category, { foreignKey: "categoryId" });
+    Category.belongsToMany(models.Article, {
+      through: "Article_category", 
+      otherKey: "articleId", 
       foreignKey: "categoryId"
     })
   };
