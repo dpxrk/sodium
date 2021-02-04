@@ -1,26 +1,27 @@
-extends layout.pug
-
+extends layout
+append head
+  title="Sodium"
+    link(rel='stylesheet' href='/stylesheets/reset.css')
 block content
-  body
-    form(action="/signup" method="POST")
-      input(type='hidden' name='_csrf' value=csrfToken)
-      div
-        label First Name:
-        input(type=STRING, name='firstName', required)
-      div
-        label Last Name:
-        input(type=STRING, name='lastName', required)
-      div
-        label Email:
-        input(type="email", name='email', required)
-      div
-        label Password:
-        input(type='password', name='passwordHash', required)
-      div
-        label Confirm Password:
-        input(type='password', required)
-      div
-        label Phone Number :
-        input(type='number', required)
-      div
-        button(type='submit') Create User
+  form(action="/signup" method="POST")
+    input(type='hidden' name='_csrf' value=csrfToken)
+    div
+      label First Name:
+      input(type=STRING, name='firstName', required)
+    div
+      label Last Name:
+      input(type=STRING, name='lastName', required)
+    div
+      label Email:
+      input(type="email", name='email', required)
+    div
+      label Password:
+      input(type='password', name='passwordHash', required)
+    div
+      label Confirm Password:
+      input(type='password', required)
+    div
+      label Phone Number :
+      input(type='number', required)
+    div
+      button(type='submit') Create User
