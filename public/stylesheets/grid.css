@@ -11,11 +11,39 @@ grid-template-areas:
 }
 
 .main-article {
+<<<<<<< HEAD
+    background-color: blue;
+=======
     /* background-color: blue; */
+>>>>>>> main
     grid-area: main-article;
 }
 
 .sidebar {
+<<<<<<< HEAD
+    background-color: pink;
+    grid-area: sidebar;
+}
+
+.main-art-container {
+    border-radius: 12px;
+    background-color: wheat;
+    padding: 10px;
+    margin: 10px;
+    height: 450px;
+    /* background-image: url("public/images/SpilledSalt.jpg") */
+}
+.main-art-headline {
+    border-radius: 12px;
+    background-color: rgb(218, 143, 4);
+    padding: 10px;
+    margin-top: 220px;
+    height: 250px;
+}
+
+.latest {
+    background-color: rgb(73, 30, 230);
+=======
     background-color: #012365;
     grid-area: sidebar;
     border-radius: 4px;
@@ -64,17 +92,27 @@ grid-template-areas:
 
 .latest {
     /* background-color: rgb(73, 30, 230); */
+>>>>>>> main
     grid-area: latest;
     display: flex;
     flex-direction: row;
     align-items: center;
+<<<<<<< HEAD
+=======
     /* width: 90%; */
     justify-content: center;
+>>>>>>> main
 }
 
 .article-container {
     width: 33%;
     height: 100px;
+<<<<<<< HEAD
+}
+
+.art-title {
+font-weight: 800;
+=======
     border: #1161d4 1px solid;
     border-radius: 4px;
     margin: 5px;
@@ -126,4 +164,5 @@ font-size: 1em;
 text-overflow: ellipsis;
 white-space:pre-wrap;
 max-height: 10px;
+>>>>>>> main
 }
