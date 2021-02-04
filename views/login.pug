@@ -1,14 +1,13 @@
-extends layout.pug
+extends layout
+
 block content
-  body
-    form(action="/login" method="POST")
-      input(type='hidden', name='_csrf' value=csrfToken)
-      div
-        label Your Email Address:
-        input(type='email' required)
-      div
-        label Your Password:
-        input(type='password' required)
-      div
-        button(type='submit') Login
-    block content
+  form(action="login" method="POST")
+    input(type='hidden', name='_csrf' value=csrfToken)
+    div
+      label Your Email Address:
+      input(type='email' required)
+    div
+      label Your Password:
+      input(type='password' required)
+    div
+      button(type='submit') Login
