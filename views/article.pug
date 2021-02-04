@@ -1,7 +1,9 @@
 extends layout.pug
-  
+
+
 block content
   body
+  div.container
     div
       h1 #{article.title}
     div
@@ -14,4 +16,3 @@ block content
       ul
         each comment in comments
           li= comment.content
-      

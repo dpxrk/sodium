@@ -10,18 +10,19 @@ const { asyncHandler, csrfProtection } = require('./utils')
 
 
 
+
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   //route to get a single post
 
   const articleId = parseInt(req.params.id, 10)
-  
+
   const article = await Article.findByPk(articleId, {
     include: [Salt, Comment, User]
   })
-  const comments = await Comment.findAll({ 
+  const comments = await Comment.findAll({
     where: { id: articleId }
   })
-  const salts = await Salt.findAll({ 
+  const salts = await Salt.findAll({
     where: { id: articleId }
   })
 
@@ -31,9 +32,8 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
 //route to get all articles
 router.get('/', asyncHandler(async (req, res) => {
   const articles = await Article.findAll()
-
   res.render('articles', { articles })
-  // res.json({ articles })
+
 }))
 
 
@@ -57,7 +57,7 @@ router.post('/createArticle', csrfProtection, asyncHandler(async (req, res) => {
   })
 
 
-  res.redirect('/', { newArticle })
+  res.redirect('/articles', { newArticle })
 }))
 
 //publish an article button will need to go around just like logout.
