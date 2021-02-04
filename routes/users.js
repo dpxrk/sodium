@@ -194,14 +194,14 @@ router.post('/logout', (req, res) => {
 
 router.get('/', function (req, res, next) {
   res.send('respond with a resource');
-  });
+});
 
-router.post('/login', csrfProtection, asyncHandler(async (req, res) => {
+router.post('/', csrfProtection, asyncHandler(async (req, res) => {
 
-  const demouser = await db.User.findOne({ where: { email: user.demoEmail }})
+  const demouser = await db.User.findOne({ where: { email: 'demo.user@demo.com' } })
   loginUser(req, res, demouser)
-    res.redirect('/')
+  res.redirect('/')
 })) // Note: come back to this route after seed data has been created
-    // This will be added to the top const {demouser} = require('../auth.js')
+// This will be added to the top const {demouser} = require('../auth.js')
 
 module.exports = router;
