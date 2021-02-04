@@ -1,11 +1,23 @@
 extends layout
-
 append head
-  //- add page specific styles by appending to the head
-
-  //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
-
+  link(rel='stylesheet' href='/stylesheets/grid.css')
 block content
-  h1= title
-  p Project Sodium 
+  div.grid-container
+    .main-article 
+      .main-art-container 
+      //- img(src="src="public/images/headshot.png"", alt="", srcset="")
+      .main-art-headline test
+      
+    .sidebar  
+      p test
+      p test
+      p test
+      p test
+      p test
+      p cathryn
+    .latest
+      .article-container.art-title stuff
+      .article-container stuff
+      .article-container stuff
+      
