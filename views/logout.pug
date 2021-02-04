@@ -1,9 +1,8 @@
-doctype html
-html
-  head
+extends layout
+  appen head
       block head
         title="Sodium"
         link(rel='stylesheet' href='/stylesheets/reset.css')
-  body
+  block content
     form(action="logout" method="POST")
     submit(type='submit') Logout
