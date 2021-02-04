@@ -14,10 +14,14 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   //route to get a single post
 
   const articleId = parseInt(req.params.id, 10)
+  
   const article = await Article.findByPk(articleId, {
     include: [Salt, Comment, User]
   })
-  res.json({ article })
+  const comments = await Comment.findAll({ 
+    where: { id: articleId }
+  })
+  res.render('article', { article, comments })
 }))
 
 
