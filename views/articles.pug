@@ -1,0 +1,6 @@
+extends layout.pug
+
+include util.pug
+block content
+  each article in articles
+    +article(article.title, article.image)
