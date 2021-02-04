@@ -8,13 +8,9 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-<<<<<<< HEAD
-const articlesRouter = require('./routes/articles')
-const { restoreUser } = require('./auth.js')
-=======
 const { restoreUser } = require('./auth.js')
 const { sessionSecret } = require('./config')
->>>>>>> main
+const articlesRouter = require('./routes/articles')
 
 const app = express();
 
