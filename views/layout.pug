@@ -15,6 +15,7 @@ html
       div
         img.navlogo(src="/images/whitelogo.png", alt="")
       if !authenticated
+<<<<<<< HEAD
         div.nav-links
           form(action="/demo", method="get")
             button.button-style(type="submit") Demo
@@ -28,6 +29,21 @@ html
           p.nav-links Steve Guttbinder
           img.avatar-nav(src="/images/headshot.png", alt="")
           form(action="/users", method="get")
+=======
+        div.nav-links 
+          form(action="/demo", method="get")
+            button.button-style(type="submit") Demo
+          form(action="/users/signup", method="get") 
+            button.button-style(type="submit") Sign Up
+          form(action="/users/login", method="get") 
+            button.button-style(type="submit") Login
+      else 
+        div.nav-links 
+          //Interpolate the following
+          p.nav-links Steve Guttbinder
+          img.avatar-nav(src="/images/headshot.png", alt="")
+          form(action="/users/login", method="get") 
+>>>>>>> main
             button.button-style(type="submit") Logout
   div.page-wrap
     block content
