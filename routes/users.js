@@ -193,7 +193,7 @@ router.get('/', requireAuth, asyncHandler(async (req, res) => {
 
 router.post('/logout', (req, res) => {
   logoutUser(req, res);
-  res.redirect('/')
+  res.redirect('/user')
 })
 
 router.get('/', function (req, res, next) {
