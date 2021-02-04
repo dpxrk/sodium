@@ -1,18 +1,13 @@
-doctype html
-html
-  head
-      block head
-        title="Sodium"
-        link(rel='stylesheet' href='/stylesheets/reset.css')
-  body
-    form(action="login" method="POST")
-      input(type='hidden', name='_csrf' value=csrfToken)
-      div
-        label Your Email Address:
-        input(type='email' required)
-      div
-        label Your Password:
-        input(type='password' required)
-      div
-        button(type='submit') Login
-    block content
+extends layout
+
+block content
+  form(action="login" method="POST")
+    input(type='hidden', name='_csrf' value=csrfToken)
+    div
+      label Your Email Address:
+      input(type='email' required)
+    div
+      label Your Password:
+      input(type='password' required)
+    div
+      button(type='submit') Login
