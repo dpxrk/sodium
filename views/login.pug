@@ -1,14 +1,14 @@
 extends layout.pug
 block content
   body
-    form(action="/login" method="POST")
+    form(action="/users/login" method="POST")
       input(type='hidden', name='_csrf' value=csrfToken)
       div
         label Your Email Address:
-        input(type='email' required)
+        input(type='text' name='email' required)
       div
         label Your Password:
-        input(type='password' required)
+        input(type='password' name='password' required)
       div
         button(type='submit') Login
     block content
