@@ -34,11 +34,14 @@ font-weight: 100;
 
 .button-style {
     font-family: Montserrat;
-    font-weight: 700;
+    font-weight: 500;
     height: 2em;
     padding: 0 20px;
     margin: 0 10px;
-    
+    border-radius: 12px;
+    background-color:transparent;
+    border:white solid 1px;
+    color: white;
     
 }
 
