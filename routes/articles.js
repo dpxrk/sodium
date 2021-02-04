@@ -21,11 +21,12 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   const comments = await Comment.findAll({ 
     where: { id: articleId }
   })
+  const salts = await Salt.findAll({ 
+    where: { id: articleId }
+  })
+
   res.render('article', { article, comments })
 }))
-
-
-
 
 //route to get all articles
 router.get('/', asyncHandler(async (req, res) => {
