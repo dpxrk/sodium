@@ -27,7 +27,7 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
 router.get('/', asyncHandler(async (req, res) => {
   const articles = await Article.findAll()
 
-  res.render('articles')
+  res.render('articles', { articles })
   // res.json({ articles })
 }))
 
@@ -37,7 +37,7 @@ router.get('/', asyncHandler(async (req, res) => {
 
 router.get('/createArticle', csrfProtection, asyncHandler(async (req, res) => {
 
-  res.render('createArticle')
+  res.render('createArticle', {csrfToken: req.csrfToken()})
 }))
 
 router.post('/createArticle', csrfProtection, asyncHandler(async (req, res) => {
@@ -48,7 +48,7 @@ router.post('/createArticle', csrfProtection, asyncHandler(async (req, res) => {
     title: req.body.title,
     content: req.body.content,
     image: req.body.image,
-    csrfToken: req.csrfToken(),
+    authorId: req.session.auth.userId
   })
 
 
