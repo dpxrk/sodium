@@ -1,7 +1,7 @@
 extends layout
 append head
   script(src="/javascripts/index.js" type="module" defer)
-  link(rel='stylesheet' href='/stylesheets/grid.css')
+  link(rel='stylesheet' href='/stylesheets/main-grid.css')
 block content
   div.grid-container
 
@@ -71,25 +71,11 @@ block content
 
 
     .latest
-      .sidebar-article
-        img.sidebar-article-image(src="/images/SpilledSalt.jpg", alt="")
+      .latest-article
+        img.latest-article-image(src="/images/SpilledSalt.jpg", alt="")
         div 
-          .sidebar-article-title Sidebar Headline Sidebar Headline Sidebar Headline
+        .latest-article-title Sidebar Headline Sidebar Headline Sidebar Headline
           .sidebar-article-title salt # 
-      .sidebar-article
-        img.sidebar-article-image(src="/images/SpilledSalt.jpg", alt="")
+      .latest-article
+        img.latest-article-image(src="/images/headshot.png", alt="")
         div 
-          .sidebar-article-title Sidebar Headline Sidebar Headline Sidebar Headline
-          .sidebar-article-title salt # 
-      .sidebar-article
-        img.sidebar-article-image(src="/images/SpilledSalt.jpg", alt="")
-        div 
-          .sidebar-article-title Sidebar Headline Sidebar Headline Sidebar Headline
-          .sidebar-article-title salt # 
-      .sidebar-article
-        img.sidebar-article-image(src="/images/SpilledSalt.jpg", alt="")
-        div 
-          .sidebar-article-title Sidebar Headline Sidebar Headline Sidebar Headline
-          .sidebar-article-title salt # 
-    
-
