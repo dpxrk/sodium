@@ -1,13 +1,23 @@
 extends layout
+append head
+  script(src="/javascripts/index.js" type="module" defer)
+  link(rel='stylesheet' href='/stylesheets/login.css')
 
 block content
-  form(action="login" method="POST")
-    input(type='hidden', name='_csrf' value=csrfToken)
-    div
-      label Your Email Address:
-      input(type='email' required)
-    div
-      label Your Password:
-      input(type='password' required)
-    div
-      button(type='submit') Login
+  body 
+  .form-container
+    
+    .form-title Login
+    //- img.logo-container(src="/images/whitelogo.png", alt="")
+    form(action="login" method="POST")
+      input(type='hidden', name='_csrf' value=csrfToken)
+      div
+        //- label.form-desc Email Address 
+        input(type='email' placeholder='Email Address' 
+        required)
+      div
+        //- label.form-desc Password
+        br
+        input(type='password' placeholder='Password' required)
+      div
+        button.login-button(type='submit') Submit
