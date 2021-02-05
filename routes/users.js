@@ -15,25 +15,25 @@ const userValidators = [
       checkFalsy: true,
     })
     .withMessage("Please tell us your first name!")
-    .isLength(15),
+    .isLength({ max: 15 }),
   check("lastName")
     .exists({
       checkFalsy: true,
     })
     .withMessage("Please tell us your last name!")
-    .isLength(15),
+    .isLength({ max: 15 }),
   check("email")
     .exists({
       checkFalsy: true,
     })
     .withMessage("Please tell us your email address")
-    .isLength(50)
+    .isLength({ max: 50 })
     .isEmail()
     .withMessage("Email not found")
     .custom((value) => {
       return db.User.findOne({
         where: {
-          emailAddress: value,
+          email: value,
         },
       }).then((user) => {
         if (user) {
@@ -43,12 +43,12 @@ const userValidators = [
         }
       });
     }),
-  check("passwordHash")
+  check("password")
     .exists({
       checkFalsy: true,
     })
     .withMessage("Please input your secret password!")
-    .isLength(100)
+    .isLength({ max: 100 })
     .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/, "g")
     .withMessage(
       'Password must contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*")'
@@ -66,6 +66,14 @@ const userValidators = [
         throw new Error("Confirm Password does not match Password");
       }
       return true;
+    }),
+  check("phoneNumber")
+    .exists({
+      checkFalsy: true,
+    })
+    .withMessage("Please enter a valid phone number.")
+    .isLength({
+      max: 11,
     }),
 ];
 
@@ -87,29 +95,39 @@ router.post(
   csrfProtection,
   userValidators,
   asyncHandler(async (req, res) => {
-    const { id, firstName, lastName, email, password, phoneNumber } = req.body;
-    const user = await User.build({
-      id,
+    // console.log("WE ARE HERE AT THIS ROUTE");
+
+    const { firstName, lastName, email, password, phoneNumber } = req.body;
+    console.log(
+      "THESE ARE THE VALUES:",
       firstName,
       lastName,
       email,
-      passwordHash,
+      password,
+      phoneNumber
+    );
+    const user = User.build({
+      firstName,
+      lastName,
+      email,
       phoneNumber,
     });
 
     const validatorErrors = validationResult(req);
-
+    // console.log("CHECKPPOINT NUMBER 2");
+    console.log(validatorErrors);
     if (validatorErrors.isEmpty()) {
       const hashedPassword = await bcrypt.hash(password, 10);
       user.passwordHash = hashedPassword;
-      await user.save();
-      loginUser(req, res, user);
-      return res.session.save((error) => {
-        if (error) {
-          next(error);
-        } else {
-          res.redirect("/");
-        }
+      await user.save().then(() => {
+        loginUser(req, res, user);
+        return req.session.save((error) => {
+          if (error) {
+            next(error);
+          } else {
+            return res.redirect("/");
+          }
+        });
       });
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
@@ -148,25 +166,25 @@ router.post(
   csrfProtection,
   loginValidators,
   asyncHandler(async (req, res) => {
+    // console.log("THIS IS THE START OF THE ROUTE");
     const { email, password } = req.body;
     const errors = [];
     const validatorErrors = validationResult(req);
+    // console.log("THESE ARE THE VALIDATOR ERRORS:", validatorErrors);
     if (validatorErrors.isEmpty()) {
       const user = await db.User.findOne({
         where: { email },
       });
-      console.log("THIS IS THE USER", user);
-      console.log("THIS IS THE PASSWORD:", password);
       if (user !== null) {
-        // console.log(password, user.passwordHash)
+        // console.log("THIS IS THE PASSWORDS:", password, user.passwordHash);
         const passwordMatch = await bcrypt.compare(
           password,
           user.passwordHash.toString()
         );
-        console.log("THIS IS THE PASSWORD MATCH VALUE:", passwordMatch);
+        // console.log("THIS IS THE PASSWORD MATCH VALUE:", passwordMatch);
         if (passwordMatch) {
           loginUser(req, res, user);
-          return res.session.save((error) => {
+          return req.session.save((error) => {
             if (error) {
               next(error);
             } else {
@@ -200,7 +218,6 @@ router.get(
 );
 
 router.post("/logout", (req, res) => {
-  console.log("WE ARE HERE");
   logoutUser(req, res);
   return req.session.save((error) => {
     if (error) {

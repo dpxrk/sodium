@@ -1,25 +1,24 @@
 body {
   /* background-image: url("/images/SaltBackground.png"); */
-  /* background-size: cover;  
+  /* background-size: cover;
   background-repeat:repeat; */
   margin: 0;
   /* background-attachment: fixed; */
-  background:  linear-gradient(360deg, #000f2d 0%, #012365 100%);
+  background: linear-gradient(360deg, #000f2d 0%, #012365 100%);
   height: 100%;
-  }
+}
 
 .form-container {
-    /* background-color: #00A2FF ; */
-    height:40%;
-    width: 40%;
-    margin: auto;
-    margin-top: 25%;
-text-align: center;
-/* border-radius: 20px; */
-padding: 20px;
-animation-duration: 1s;
+  /* background-color: #00A2FF ; */
+  height: 40%;
+  width: 40%;
+  margin: auto;
+  margin-top: 25%;
+  text-align: center;
+  /* border-radius: 20px; */
+  padding: 20px;
+  animation-duration: 1s;
   animation-name: fadein;
-
 }
 
 @keyframes fadein {
@@ -33,72 +32,75 @@ animation-duration: 1s;
 }
 
 .form-container-signup {
-    /* background-color: #00A2FF ; */
-    height:40%;
-    width: 40%;
-    margin: auto;
-    margin-top: 15%;
-text-align: center;
-/* border-radius: 20px; */
-padding: 20px;
-animation-duration: 1s;
+  /* background-color: #00A2FF ; */
+  height: 40%;
+  width: 40%;
+  margin: auto;
+  text-align: center;
+  /* border-radius: 20px; */
+  padding: 20px;
+  animation-duration: 1s;
   animation-name: fadein;
-
 }
 
 .logo-container {
-max-width: 200PX;
-height: auto;
-margin-bottom: 20px;
-    }
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+}
 
 .form-box {
- display: flex;
- flex-direction: column;
-
+  display: flex;
+  flex-direction: column;
 }
 
 .form-desc {
-    color: white;
-    font-family: Montserrat;
-    font-weight: 500;
-    font-size: 1.1em;
+  color: white;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 1.1em;
 }
 
 input {
-    padding: 10px;
-    border-radius: 18px;
-    border: none;
-    font-family: Montserrat;
-    font-weight: 400;
-    width: 70%;
+  padding: 10px;
+  border-radius: 18px;
+  border: none;
+  font-family: Montserrat;
+  font-weight: 400;
+  width: 70%;
 }
 
-
 input:focus {
-    outline: none;
-    
+  outline: none;
 }
 
 .form-title {
-    font-family: Montserrat;
-    font-weight: 500;
-    font-size: 2.5em;
-    color: white;
-    padding: 10px
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 2.5em;
+  color: white;
+  padding: 10px;
 }
 
 .login-button {
-    font-family: Montserrat;
-    font-weight: 500;
-    height: 2em;
-    padding: 0 20px;
-    margin: 0 10px;
-    border-radius: 15px;
-    background-color:transparent;
-    border:white solid 1px;
-    color: white;
-    margin: 15px;
-    font-size: 1em;
-    cursor: pointer;
+  font-family: Montserrat;
+  font-weight: 500;
+  height: 2em;
+  padding: 0 20px;
+  margin: 0 10px;
+  border-radius: 15px;
+  background-color: transparent;
+  border: white solid 1px;
+  color: white;
+  margin: 15px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.below-text {
+  color: white;
+  padding: 10px;
+  font-size: 6px;
+  width: 260px;
+  margin: auto;
 }

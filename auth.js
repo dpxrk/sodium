@@ -33,9 +33,7 @@ const restoreUser = async (req, res, next) => {
 };
 
 const logoutUser = (req, res) => {
-  console.log("THIS IS BEFORE:", req.session.auth);
   delete req.session.auth;
-  console.log("THIS IS AFTER:", req.session.auth);
 };
 
 // We don't want token based... we want session based
@@ -46,15 +44,11 @@ const logoutUser = (req, res) => {
 // }
 
 const requireAuth = (req, res, next) => {
-
-    if (!res.locals.authenticated) {
-      return res.redirect('/users/login');
-    }
-    return next();
-  };
-  
-
-
+  if (!res.locals.authenticated) {
+    return res.redirect("/users/login");
+  }
+  return next();
+};
 
 module.exports = {
   loginUser,
