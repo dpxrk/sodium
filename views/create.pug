@@ -2,7 +2,7 @@ extends layout.pug
 
 block content
   body
-    form(action="/articles/createArticle" method="POST")
+    form(action="/articles/create" method="POST")
       input(type='hidden', name='_csrf' value=csrfToken)
       div
         label Title:

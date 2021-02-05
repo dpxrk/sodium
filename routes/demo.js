@@ -1,8 +1,8 @@
-var express = require("express");
+const express = require("express");
 const { csrfProtection, asyncHandler } = require("./utils");
-var router = express.Router();
+const router = express.Router();
 const { User } = require("../db/models");
-const { loginUser, restoreUser } = require("../auth");
+const { loginUser, restoreUser, requireAuth, logoutUser } = require("../auth");
 
 /* GET home for the Demo page. */
 router.get(
@@ -15,7 +15,7 @@ router.get(
     });
 
     loginUser(req, res, demoUser);
-    res.locals.user = demoUser; //container to put any arbitrary amount of data
+    // res.locals.user = demoUser; //container to put any arbitrary amount of data
     return req.session.save((error) => {
       if (error) {
         next(error);
@@ -26,8 +26,9 @@ router.get(
   })
 );
 
+
 router.get(
-  "/createArticle",
+  "/create",
   csrfProtection,
   asyncHandler(async (req, res) => {
     const demoUser = await User.findOne({
@@ -37,8 +38,9 @@ router.get(
     });
 
     res.locals.user = demoUser;
-    res.render("createArticle", { csrfToken: req.csrfToken() });
+    res.render("create", { csrfToken: req.csrfToken() });
   })
 );
+
 
 module.exports = router;
