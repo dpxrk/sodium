@@ -26,10 +26,21 @@ router.get(
   })
 );
 
-//project purposes, can compile in all one database.
 
-router.post("/logout", (req, res) => {
-  logoutUser();
-});
+router.get(
+  "/create",
+  csrfProtection,
+  asyncHandler(async (req, res) => {
+    const demoUser = await User.findOne({
+      where: {
+        email: "demo.user@demo.com",
+      },
+    });
+
+    res.locals.user = demoUser;
+    res.render("create", { csrfToken: req.csrfToken() });
+  })
+);
+
 
 module.exports = router;
