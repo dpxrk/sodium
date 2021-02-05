@@ -4,9 +4,9 @@ append head
   link(rel='stylesheet' href='/stylesheets/login.css')
 
 block content
-  body 
+  body
   .form-container-signup
-    
+
     .form-title Sign Up
     //- img.logo-container(src="/images/whitelogo.png", alt="")
     form(action="/signup" method="POST")
@@ -27,7 +27,6 @@ block content
       input(type='password', placeholder='Confirm Password', required)
     div
       br
-      input(type='number',placeholder='Phone Number', required)
+      input(type='tel',placeholder='Phone Number', required)
     div
       button.login-button(type='submit') Create User
-

@@ -155,14 +155,15 @@ router.post(
       const user = await db.User.findOne({
         where: { email },
       });
-
-      // console.log(password);
+      console.log("THIS IS THE USER", user);
+      console.log("THIS IS THE PASSWORD:", password);
       if (user !== null) {
         // console.log(password, user.passwordHash)
         const passwordMatch = await bcrypt.compare(
           password,
           user.passwordHash.toString()
         );
+        console.log("THIS IS THE PASSWORD MATCH VALUE:", passwordMatch);
         if (passwordMatch) {
           loginUser(req, res, user);
           return res.session.save((error) => {
@@ -199,8 +200,15 @@ router.get(
 );
 
 router.post("/logout", (req, res) => {
+  console.log("WE ARE HERE");
   logoutUser(req, res);
-  res.redirect("/user");
+  return req.session.save((error) => {
+    if (error) {
+      next(error);
+    } else {
+      return res.redirect("/");
+    }
+  });
 });
 
 router.get("/", function (req, res, next) {
