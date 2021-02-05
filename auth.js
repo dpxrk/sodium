@@ -1,19 +1,18 @@
-const db = require('./db/models');
-const jwt = require('jsonwebtoken')
-const secret = 'asdfghjkl123456789'
-
+const db = require("./db/models");
+const jwt = require("jsonwebtoken");
 
 //nav bar login/signup.
 const loginUser = (req, res, user) => {
   req.session.auth = {
     email: user.email,
-    userId: user.id
+    userId: user.id,
     // reason: storing passwords isn't ideal. password: user.passwordHash
-  }
-}
+  };
+};
 
+//middleware
 const restoreUser = async (req, res, next) => {
-  console.log(req.session);
+  // console.log(req.session);
   if (req.session.auth) {
     const { userId } = req.session.auth;
     try {
@@ -21,7 +20,7 @@ const restoreUser = async (req, res, next) => {
       if (user) {
         res.locals.authenticated = true;
         res.locals.user = user;
-        next()
+        next();
       }
     } catch (err) {
       res.locals.authenticated = false;
@@ -29,13 +28,15 @@ const restoreUser = async (req, res, next) => {
     }
   } else {
     res.locals.authenticated = false;
-    next()
+    next();
   }
-}
+};
 
 const logoutUser = (req, res) => {
+  console.log("THIS IS BEFORE:", req.session.auth);
   delete req.session.auth;
-}
+  console.log("THIS IS AFTER:", req.session.auth);
+};
 
 // We don't want token based... we want session based
 // function generateUserToken(user) {
@@ -44,32 +45,20 @@ const logoutUser = (req, res) => {
 //   return token
 // }
 
+const requireAuth = (req, res, next) => {
 
-function requireAuth(req, res, next) {
-  const { token } = req;
-
-  if (!token) {
-    const error = new Error('User does not exists. Please register')
-    error.status = 404;
-    return next(error)
-  }
-
-  jwt.verify(token, secret, (error, decoded) => {
-    if (error) {
-      const error = new Error('Invalid Login :( please try again');
-      error.status = 401;
-      return next(error);
+    if (!res.locals.authenticated) {
+      return res.redirect('/users/login');
     }
+    return next();
+  };
+  
 
-    res.locals.user = decoded;
-    next();
-  })
-}
 
 
 module.exports = {
   loginUser,
   logoutUser,
   requireAuth,
-  restoreUser
-}
+  restoreUser,
+};

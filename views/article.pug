@@ -1,11 +1,18 @@
-extends layout
+extends layout.pug
 
-append head
-  //- add page specific styles by appending to the head
-
-  //- add page specific js
-  script(src="/javascripts/index.js" type="module" defer)
 
 block content
-  h1= title
-  p Project Sodium 
+  body
+  div.container
+    div
+      h1 #{article.title}
+    div
+      h6 Written by: #{article.User.firstName} #{article.User.lastName}
+    div
+      img(src=article.image)
+    div
+      p #{article.content}
+    div
+      ul
+        each comment in comments
+          li= comment.content
