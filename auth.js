@@ -1,6 +1,6 @@
 const db = require('./db/models');
 const jwt = require('jsonwebtoken')
-const secret = 'asdfghjkl123456789'
+
 
 
 //nav bar login/signup.
@@ -13,7 +13,7 @@ const loginUser = (req, res, user) => {
 }
 
 const restoreUser = async (req, res, next) => {
-  console.log(req.session);
+  // console.log(req.session);
   if (req.session.auth) {
     const { userId } = req.session.auth;
     try {
