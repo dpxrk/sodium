@@ -14,7 +14,7 @@ const {
 } = require('../auth');
 const {
   check,
-  validationResults
+  validationResult
 } = require('express-validator');
 const db = require('../db/models')
 
@@ -160,13 +160,16 @@ router.get('/login', csrfProtection, (req, res) => {
 router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   const errors = [];
-  const validatorErrors = validationResults(req);
+  const validatorErrors = validationResult(req);
   if (validatorErrors.isEmpty()) {
     const user = await db.User.findOne({
       where: { email }
     })
+
+    // console.log(password);
     if (user !== null) {
-      const passwordMatch = await bcrypt.compare(password, user.passwordHash)
+      console.log(password, user.passwordHash)
+      const passwordMatch = await bcrypt.compare(password, user.passwordHash.toString())
       if (passwordMatch) {
         loginUser(req, res, user)
         return res.redirect('/')
@@ -176,7 +179,8 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
     }
   }
   errors.push(...validatorErrors.array().map(err => err.msg))
-  res.render('/login', { title: 'Login', csrfToken: req.csrfToken(), email, errors })
+  // console.log(errors)
+  res.render('login', { title: 'Login', csrfToken: req.csrfToken(), email, errors })
 }))
 
 
@@ -189,19 +193,19 @@ router.get('/', requireAuth, asyncHandler(async (req, res) => {
 
 router.post('/logout', (req, res) => {
   logoutUser(req, res);
-  res.redirect('/')
+  res.redirect('/user')
 })
 
 router.get('/', function (req, res, next) {
   res.send('respond with a resource');
-  });
+});
 
-router.post('/login', csrfProtection, asyncHandler(async (req, res) => {
+router.post('/', csrfProtection, asyncHandler(async (req, res) => {
 
-  const demouser = await db.User.findOne({ where: { email: user.demoEmail }})
+  const demouser = await db.User.findOne({ where: { email: 'demo.user@demo.com' } })
   loginUser(req, res, demouser)
-    res.redirect('/')
+  res.redirect('/')
 })) // Note: come back to this route after seed data has been created
-    // This will be added to the top const {demouser} = require('../auth.js')
+// This will be added to the top const {demouser} = require('../auth.js')
 
 module.exports = router;
