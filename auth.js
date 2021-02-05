@@ -1,6 +1,6 @@
 const db = require('./db/models');
 const jwt = require('jsonwebtoken')
-const secret = 'asdfghjkl123456789'
+
 
 
 //nav bar login/signup.
