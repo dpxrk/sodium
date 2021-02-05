@@ -14,6 +14,7 @@ html
     nav.page-wrap
       div
         img.navlogo(src="/images/whitelogo.png", alt="")
+      div Authenticated: #{authenticated}
       if !authenticated
         div.nav-links
           form(action="/demo", method="get")
@@ -25,7 +26,7 @@ html
       else
         div.nav-links
           //Interpolate the following
-          p.nav-links Steve Guttbinder
+          p.nav-links USERNAME: #{user.firstName} #{user.lastName}
           img.avatar-nav(src="/images/headshot.png", alt="")
           form(action="/users/login", method="get")
             button.button-style(type="submit") Logout

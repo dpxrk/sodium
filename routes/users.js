@@ -168,7 +168,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
 
     // console.log(password);
     if (user !== null) {
-      console.log(password, user.passwordHash)
+      // console.log(password, user.passwordHash)
       const passwordMatch = await bcrypt.compare(password, user.passwordHash.toString())
       if (passwordMatch) {
         loginUser(req, res, user)
@@ -182,6 +182,8 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
   // console.log(errors)
   res.render('login', { title: 'Login', csrfToken: req.csrfToken(), email, errors })
 }))
+
+
 
 
 router.get('/', requireAuth, asyncHandler(async (req, res) => {
@@ -202,8 +204,8 @@ router.get('/', function (req, res, next) {
 
 router.post('/', csrfProtection, asyncHandler(async (req, res) => {
 
-  const demouser = await db.User.findOne({ where: { email: 'demo.user@demo.com' } })
-  loginUser(req, res, demouser)
+  const demoUser = await db.User.findOne({ where: { email: 'demo.user@demo.com' } })
+  loginUser(req, res, demoUser)
   res.redirect('/')
 })) // Note: come back to this route after seed data has been created
 // This will be added to the top const {demouser} = require('../auth.js')
