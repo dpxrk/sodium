@@ -28,7 +28,7 @@ html
           //Interpolate the following
           p.nav-links USERNAME : #{user.firstName} #{user.lastName}
           img.avatar-nav(src="/images/headshot.png", alt="")
-          form(action="/users/login", method="get")
+          form(action="/users/logout", method="POST")
             button.button-style(type="submit") Logout
   div.page-wrap
     block content
