@@ -27,7 +27,7 @@ router.get(
 );
 
 router.get(
-  "/createArticle",
+  "/create",
   csrfProtection,
   asyncHandler(async (req, res) => {
     const demoUser = await User.findOne({
@@ -37,7 +37,7 @@ router.get(
     });
 
     res.locals.user = demoUser;
-    res.render("createArticle", { csrfToken: req.csrfToken() });
+    res.render("create", { csrfToken: req.csrfToken() });
   })
 );
 

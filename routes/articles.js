@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const { restoreUser } = require('../auth');
+const { restoreUser, requireAuth } = require('../auth');
 const { User, Category, Article, Article_category, Salt, Comment } = require('../db/models');
 const { asyncHandler, csrfProtection } = require('./utils')
+
 
 
 // Routes to get / post an existing article. && Routes to get all articles &&
@@ -11,7 +12,7 @@ const { asyncHandler, csrfProtection } = require('./utils')
 
 
 
-router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
+router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   //route to get a single post
 
   const articleId = parseInt(req.params.id, 10)
@@ -30,7 +31,7 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
 }))
 
 //route to get all articles
-router.get('/', asyncHandler(async (req, res) => {
+router.get('/', requireAuth, asyncHandler(async (req, res) => {
   const articles = await Article.findAll()
   res.render('articles', { articles })
 
@@ -40,12 +41,12 @@ router.get('/', asyncHandler(async (req, res) => {
 
 //route to create an article
 
-router.get('/createArticle', csrfProtection, asyncHandler(async (req, res) => {
+router.get('/create', requireAuth, csrfProtection, asyncHandler(async (req, res) => {
 
-  res.render('createArticle', {csrfToken: req.csrfToken()})
+  res.render('create', {csrfToken: req.csrfToken()})
 }))
 
-router.post('/createArticle', csrfProtection, asyncHandler(async (req, res) => {
+router.post('/create', requireAuth, csrfProtection, asyncHandler(async (req, res) => {
 
   const { title, content, image } = req.body;
   
@@ -57,7 +58,7 @@ router.post('/createArticle', csrfProtection, asyncHandler(async (req, res) => {
   })
 
 
-  res.redirect('/articles', { newArticle })
+  res.redirect(`/articles/${newArticle.id}`)
 }))
 
 //publish an article button will need to go around just like logout.

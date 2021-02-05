@@ -43,26 +43,14 @@ const logoutUser = (req, res) => {
 //   return token
 // }
 
-function requireAuth(req, res, next) {
-  const { token } = req;
-
-  if (!token) {
-    const error = new Error("User does not exists. Please register");
-    error.status = 404;
-    return next(error);
-  }
-
-  jwt.verify(token, secret, (error, decoded) => {
-    if (error) {
-      const error = new Error("Invalid Login :( please try again");
-      error.status = 401;
-      return next(error);
+const requireAuth = (req, res, next) => {
+    if (!res.locals.authenticated) {
+      return res.redirect('/users/login');
     }
+    return next();
+  };
+  
 
-    res.locals.user = decoded;
-    next();
-  });
-}
 
 module.exports = {
   loginUser,
