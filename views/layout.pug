@@ -4,7 +4,7 @@ html
     block head
     title="Sodium"
     link(rel='stylesheet' href='/stylesheets/reset.css')
-    link(rel='stylesheet' href='/stylesheets/article.css')
+    //- link(rel='stylesheet' href='/stylesheets/article.css')
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     link(rel="stylesheet" href="/stylesheets/index.css")
@@ -13,8 +13,8 @@ html
   header.bg
     nav.page-wrap
       div
-        img.navlogo(src="/images/whitelogo.png", alt="")
-      div
+        a(href="/"): img.navlogo(src="/images/whitelogo.png", alt="")
+      div AUTHENTICATED: #{authenticated}
       if !authenticated
         div.nav-links
           form(action="/demo", method="get")
@@ -26,7 +26,7 @@ html
       else
         div.nav-links
           //Interpolate the following
-          p.nav-links Steve Guttbinder
+          p.nav-links USERNAME : #{user.firstName} #{user.lastName}
           img.avatar-nav(src="/images/headshot.png", alt="")
           form(action="/users/login", method="get")
             button.button-style(type="submit") Logout

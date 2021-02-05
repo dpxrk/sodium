@@ -1,27 +1,33 @@
 extends layout
 append head
-  title="Sodium"
-    link(rel='stylesheet' href='/stylesheets/reset.css')
+  script(src="/javascripts/index.js" type="module" defer)
+  link(rel='stylesheet' href='/stylesheets/login.css')
+
 block content
-  form(action="/signup" method="POST")
+  body 
+  .form-container-signup
+    
+    .form-title Sign Up
+    //- img.logo-container(src="/images/whitelogo.png", alt="")
+    form(action="/signup" method="POST")
     input(type='hidden' name='_csrf' value=csrfToken)
     div
-      label First Name:
-      input(type=STRING, name='firstName', required)
+      input(type=STRING, name='firstName', placeholder='First Name', required)
     div
-      label Last Name:
-      input(type=STRING, name='lastName', required)
+      br
+      input(type=STRING, name='lastName', placeholder='Last Name', required)
     div
-      label Email:
-      input(type="email", name='email', required)
+      br
+      input(type="email", name='email', placeholder='Email',required)
     div
-      label Password:
-      input(type='password', name='passwordHash', required)
+      br
+      input(type='password', name='passwordHash', placeholder='Password', required)
     div
-      label Confirm Password:
-      input(type='password', required)
+      br
+      input(type='password', placeholder='Confirm Password', required)
     div
-      label Phone Number :
-      input(type='number', required)
+      br
+      input(type='number',placeholder='Phone Number', required)
     div
-      button(type='submit') Create User
+      button.login-button(type='submit') Create User
+
