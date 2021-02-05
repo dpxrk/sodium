@@ -48,7 +48,7 @@ router.get('/createArticle', csrfProtection, asyncHandler(async (req, res) => {
 router.post('/createArticle', csrfProtection, asyncHandler(async (req, res) => {
 
   const { title, content, image } = req.body;
-
+  
   const newArticle = await Article.create({
     title: req.body.title,
     content: req.body.content,
