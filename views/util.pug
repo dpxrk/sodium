@@ -14,7 +14,7 @@ mixin validationErrors(errors)
           li= error
 
 
-mixin sidebar(image, title)
+mixin sidebar(title, image)
   .sidebar-article
             img.sidebar-article-image(src=image, alt="")
             div
@@ -22,3 +22,9 @@ mixin sidebar(image, title)
               .sidebar-article-title salt #
 
 
+mixin latest(title, image)
+  .latest-article
+        img.latest-article-image(src=image, alt="")
+        div
+        .latest-article-title= title
+          .sidebar-article-title salt #

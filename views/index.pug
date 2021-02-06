@@ -26,14 +26,8 @@ block content
       h1 #SuperSalty
       .sidebar
         each randomArticle in randomArticles
-          +sidebar(randomArticle.image, randomArticle.title)
+          +sidebar(randomArticle.title, randomArticle.image)
 
     .latest
-      .latest-article
-        img.latest-article-image(src="/images/SpilledSalt.jpg", alt="")
-        div
-        .latest-article-title Sidebar Headline Sidebar Headline Sidebar Headline
-          .sidebar-article-title salt #
-      .latest-article
-        img.latest-article-image(src="/images/headshot.png", alt="")
-        div
+      each latestArticle in latestArticles
+          +sidebar(latestArticle.title, latestArticle.image)
