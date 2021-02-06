@@ -18,8 +18,7 @@ router.get('/', asyncHandler(async (req, res) => {
     random.push(index)
     randomArticles.push(articles[index])
   };
-  res.json({randomArticles})
-
+  
   const latestArticles = await Article.findAll({
     order: [
       ['createdAt', 'DESC'],
