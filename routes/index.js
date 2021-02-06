@@ -4,7 +4,8 @@ const {
   asyncHandler
 } = require("../routes/utils");
 const {
-  Article
+  Article,
+  Salt
 } = require("../db/models");
 
 /* GET home page. */
@@ -33,10 +34,14 @@ router.get(
       ],
       limit: 8,
     });
+
+    const featured = articles[Math.floor(Math.random() * articles.length)]
+
     res.render("index", {
       title: "Sodium",
       randomArticles,
-      latestArticles
+      latestArticles,
+      featured
     });
   })
 );
