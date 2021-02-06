@@ -5,5 +5,5 @@ extends layout
         title="Sodium"
         link(rel='stylesheet' href='/stylesheets/reset.css')
   block content
-    form(action="logout" method="POST")
-    submit(type='submit') Logout
+    form(action="/users/logout" method="POST")
+      submit(type='submit') Logout

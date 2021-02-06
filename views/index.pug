@@ -1,95 +1,34 @@
 extends layout
 append head
   script(src="/javascripts/index.js" type="module" defer)
-  link(rel='stylesheet' href='/stylesheets/grid.css')
+  link(rel='stylesheet' href='/stylesheets/main-grid.css')
+
+include util.pug
 block content
   div.grid-container
 
-    .featured-article 
+    .featured-article
       .main-article-container
+        img(src= featured.image)
       .main-article-box
         .freshly-salted Freshly Salted
-        .title-author-container   
-          a(href="http://www.google.com").article-title A very long headline that we'll interpolate much much much much much later
-          .salt-icon-container 
+        .title-author-container
+          a(href="http://www.google.com").article-title #{featured.title}
+          .salt-icon-container
             p.salt-counter-number 87
             img(src="./images/SaltIcon.png", style={'max-width': '50%','max-height': '50%'})
           //- .author-date-container
-          //-   .art-author Author Name 
+          //-   .art-author Author Name
           //-   .art-author Date Created
-        .art-summary fundamental; But way, overcome only officers the of to text want in and holding was they'd best acting sentences although an starting always for been he got peace general round client even boss and or discharge self-interest. Refinements. Than they and theirDecorated would sleep seven separated girl met deeply, almost with a him that and the up expect, by and bidding more up first prudently, the sofa everyone attained of proceeded of out of are like millions to get is evening. Relays this, that might fundamental; But way, overcome only officers the of to text want in and holding was they'd best acting sentences although an starting always for been he got peace general round client even boss and or discharge self-interest. Refinements. Than they and their that I does musical just understand distressed of not indulged achieves arches the for. 
+        .art-summary #{featured.content}
         a(href="http://www.google.com"): p Read More
 
-      
-    .sidebar-container  
+    .sidebar-container
       h1 #SuperSalty
       .sidebar
-        .sidebar-article
-          img.sidebar-article-image(src="/images/SpilledSalt.jpg", alt="")
-          div 
-            .sidebar-article-title Sidebar Headline Sidebar Headline Sidebar Headline
-            .sidebar-article-title salt #       
-        .sidebar-article
-          img.sidebar-article-image(src="/images/SpilledSalt.jpg", alt="")
-          div 
-            .sidebar-article-title Sidebar Headline Sidebar Headline Sidebar Headline
-            .sidebar-article-title salt # 
-        .sidebar-article
-          img.sidebar-article-image(src="/images/SpilledSalt.jpg", alt="")
-          div 
-            .sidebar-article-title Sidebar Headline Sidebar Headline Sidebar Headline
-            .sidebar-article-title salt #      
-        .sidebar-article
-          img.sidebar-article-image(src="/images/SpilledSalt.jpg", alt="")
-          div 
-            .sidebar-article-title Sidebar Headline Sidebar Headline Sidebar Headline
-            .sidebar-article-title salt #   
-        .sidebar-article
-          img.sidebar-article-image(src="/images/SpilledSalt.jpg", alt="")
-          div 
-            .sidebar-article-title Sidebar Headline Sidebar Headline Sidebar Headline
-            .sidebar-article-title salt #   
-        .sidebar-article
-          img.sidebar-article-image(src="/images/SpilledSalt.jpg", alt="")
-          div 
-            .sidebar-article-title Sidebar Headline Sidebar Headline Sidebar Headline
-            .sidebar-article-title salt #   
-        .sidebar-article
-          img.sidebar-article-image(src="/images/SpilledSalt.jpg", alt="")
-          div 
-            .sidebar-article-title Sidebar Headline Sidebar Headline Sidebar Headline
-            .sidebar-article-title salt # 
-        .sidebar-article
-          img.sidebar-article-image(src="/images/SpilledSalt.jpg", alt="")
-          div 
-            .sidebar-article-title Sidebar Headline Sidebar Headline Sidebar Headline
-            .sidebar-article-title salt # 
-  
-        
-
-
-
+        each randomArticle in randomArticles
+          +sidebar(randomArticle.title, randomArticle.image, randomArticle.id)
 
     .latest
-      .sidebar-article
-        img.sidebar-article-image(src="/images/SpilledSalt.jpg", alt="")
-        div 
-          .sidebar-article-title Sidebar Headline Sidebar Headline Sidebar Headline
-          .sidebar-article-title salt # 
-      .sidebar-article
-        img.sidebar-article-image(src="/images/SpilledSalt.jpg", alt="")
-        div 
-          .sidebar-article-title Sidebar Headline Sidebar Headline Sidebar Headline
-          .sidebar-article-title salt # 
-      .sidebar-article
-        img.sidebar-article-image(src="/images/SpilledSalt.jpg", alt="")
-        div 
-          .sidebar-article-title Sidebar Headline Sidebar Headline Sidebar Headline
-          .sidebar-article-title salt # 
-      .sidebar-article
-        img.sidebar-article-image(src="/images/SpilledSalt.jpg", alt="")
-        div 
-          .sidebar-article-title Sidebar Headline Sidebar Headline Sidebar Headline
-          .sidebar-article-title salt # 
-    
-
+      each latestArticle in latestArticles
+          +sidebar(latestArticle.title, latestArticle.image, latestArticle.id)
