@@ -12,3 +12,13 @@ mixin validationErrors(errors)
       ul
         each error in errors
           li= error
+
+
+mixin sidebar(image, title)
+  .sidebar-article
+            img.sidebar-article-image(src=image, alt="")
+            div
+              .sidebar-article-title= title
+              .sidebar-article-title salt #
+
+
