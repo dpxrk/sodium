@@ -3,3 +3,12 @@ mixin article(title, image)
     h4= title
   div
     img(src=image)
+
+
+mixin validationErrors(errors)
+  if errors
+    div(class='alert-the-error' role='alert')
+      p The following error(s) occurred:
+      ul
+        each error in errors
+          li= error

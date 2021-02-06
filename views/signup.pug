@@ -1,9 +1,11 @@
 extends layout
+include util
 append head
   script(src="/javascripts/index.js" type="module" defer)
   link(rel='stylesheet' href='/stylesheets/login-and-signup.css')
 
 block content
+  +validationErrors(errors)
   body
   .form-container-signup
 
