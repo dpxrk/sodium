@@ -1,33 +1,37 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-const { asyncHandler } = require('../routes/utils');
-const { Article } = require('../db/models');
-
+const { asyncHandler } = require("../routes/utils");
+const { Article } = require("../db/models");
 
 /* GET home page. */
-router.get('/', asyncHandler(async (req, res) => {
-  const articles = await Article.findAll();
+router.get(
+  "/",
+  asyncHandler(async (req, res) => {
+    const articles = await Article.findAll();
 
-  const randomArticles = [];
-  const random = [];
-  for(let i = 0; i < 8; i++) {
-    let index = Math.floor((Math.random()) * (articles.length))
-    while(random.includes(index)) {
-      index = Math.floor((Math.random()) * (articles.length))
+    const randomArticles = [];
+    const random = [];
+    // let index = Math.floor(Math.random() * articles.length);
+    // console.log(articles.length)
+
+    const iterations = Math.min(8, articles.length);
+    for (let i = 0; i < iterations; i++) {
+      let index = Math.floor(Math.random() * articles.length);
+      while (random.includes(index)) {
+        index = Math.floor(Math.random() * articles.length);
+      }
+      random.push(index);
+      randomArticles.push(articles[index]);
     }
-    random.push(index)
-    randomArticles.push(articles[index])
-  };
-  
-  const latestArticles = await Article.findAll({
-    order: [
-      ['createdAt', 'DESC'],
-    ],
-    limit: 8
-  });
 
-  res.render('index', { title: 'Sodium', randomArticles, latestArticles });
+    const latestArticles = await Article.findAll({
+      order: [["createdAt", "DESC"]],
+      limit: 8,
+    });
 
-}));
+    res.render("index", { title: "Sodium", randomArticles, latestArticles });
+    // res.render("index", { title: "Sodium" });
+  })
+);
 
 module.exports = router;
