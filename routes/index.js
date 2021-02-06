@@ -1,7 +1,11 @@
 var express = require("express");
 var router = express.Router();
-const { asyncHandler } = require("../routes/utils");
-const { Article } = require("../db/models");
+const {
+  asyncHandler
+} = require("../routes/utils");
+const {
+  Article
+} = require("../db/models");
 
 /* GET home page. */
 router.get(
@@ -11,8 +15,6 @@ router.get(
 
     const randomArticles = [];
     const random = [];
-    // let index = Math.floor(Math.random() * articles.length);
-    // console.log(articles.length)
 
     const iterations = Math.min(8, articles.length);
     for (let i = 0; i < iterations; i++) {
@@ -21,16 +23,21 @@ router.get(
         index = Math.floor(Math.random() * articles.length);
       }
       random.push(index);
+      if(randomArticles.length > 8) continue
       randomArticles.push(articles[index]);
     }
 
     const latestArticles = await Article.findAll({
-      order: [["createdAt", "DESC"]],
+      order: [
+        ["createdAt", "DESC"]
+      ],
       limit: 8,
     });
-
-    res.render("index", { title: "Sodium", randomArticles, latestArticles });
-    // res.render("index", { title: "Sodium" });
+    res.render("index", {
+      title: "Sodium",
+      randomArticles,
+      latestArticles
+    });
   })
 );
 
