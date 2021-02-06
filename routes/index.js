@@ -10,7 +10,9 @@ router.get('/', asyncHandler(async (req, res) => {
 
   const randomArticles = [];
   const random = [];
-  for(let i = 0; i < 8; i++) {
+
+  const iterations = Math.min(8, articles.length);
+  for(let i = 0; i < iterations; i++) {
     let index = Math.floor((Math.random()) * (articles.length))
     while(random.includes(index)) {
       index = Math.floor((Math.random()) * (articles.length))
