@@ -14,7 +14,7 @@ html
     nav.page-wrap
       div
         a(href="/"): img.navlogo(src="/images/whitelogo.png", alt="")
-      div AUTHENTICATED: #{authenticated}
+      div
       if !authenticated
         div.nav-links
           form(action="/demo", method="get")
@@ -26,10 +26,12 @@ html
       else
         div.nav-links
           //Interpolate the following
-          p.nav-links USERNAME : #{user.firstName} #{user.lastName}
-          img.avatar-nav(src="/images/headshot.png", alt="")
+          p.nav-links #{user.firstName} #{user.lastName}
+          img.avatar-nav(src=user.profileImage, alt="")
           form(action="/users/logout", method="POST")
             button.button-style(type="submit") Logout
+          form(action="/articles/create", method="GET")
+            button.button-style(type="submit") Create Article
   div.page-wrap
     block content
   footer  Copyright © 2021 - The Six Pack

@@ -1,32 +1,36 @@
 extends layout
+include util
 append head
   script(src="/javascripts/index.js" type="module" defer)
   link(rel='stylesheet' href='/stylesheets/login-and-signup.css')
 
 block content
+  +validationErrors(errors)
   body
   .form-container-signup
 
     .form-title Sign Up
     //- img.logo-container(src="/images/whitelogo.png", alt="")
-    form(action="/signup" method="POST")
-    input(type='hidden' name='_csrf' value=csrfToken)
-    div
-      input(type=STRING, name='firstName', placeholder='First Name', required)
-    div
-      br
-      input(type=STRING, name='lastName', placeholder='Last Name', required)
-    div
-      br
-      input(type="email", name='email', placeholder='Email',required)
-    div
-      br
-      input(type='password', name='passwordHash', placeholder='Password', required)
-    div
-      br
-      input(type='password', placeholder='Confirm Password', required)
-    div
-      br
-      input(type='tel',placeholder='Phone Number', required)
-    div
-      button.login-button(type='submit') Create User
+    form(action="signup" method="POST")
+      input(type='hidden' name='_csrf' value=csrfToken)
+      div
+        input(type='string', name='firstName', placeholder='First Name', required)
+      div
+        br
+        input(type='string', name='lastName', placeholder='Last Name', required)
+      div
+        br
+        input(type="email", name='email', placeholder='Email',required)
+      div
+        br
+        input(type='password', name='password', placeholder='Password', required)
+      div
+        br
+        input(type='password', name='confirmPassword' placeholder='Confirm Password', required)
+      div
+        br
+        input(type='tel', name='phoneNumber' placeholder='Phone Number', required)
+      div
+        button.login-button(type='submit') Create User
+      div
+        a(href='/').login-button Cancel
