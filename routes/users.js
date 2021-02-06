@@ -188,7 +188,7 @@ router.post(
             if (error) {
               next(error);
             } else {
-              res.redirect("/");
+              return res.redirect("/");
             }
           });
         } else {

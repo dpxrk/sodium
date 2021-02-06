@@ -20,12 +20,11 @@ router.get(
       if (error) {
         next(error);
       } else {
-        res.redirect("/");
+        return res.redirect("/");
       }
     });
   })
 );
-
 
 router.get(
   "/create",
@@ -41,6 +40,5 @@ router.get(
     res.render("create", { csrfToken: req.csrfToken() });
   })
 );
-
 
 module.exports = router;

@@ -2,12 +2,13 @@
 
 const { fake } = require('faker');
 const faker = require('faker');
+const {User} = require('./20210201212830-Users')
 
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
 
-    // Initial filler articles
+    const randomNumber = Math.floor(Math.random()* User.users.length)
 
     return queryInterface.bulkInsert('Articles', [{
       authorId: 1,
@@ -26,7 +27,8 @@ module.exports = {
       title: 'Nation Tells Drake They’ll Get Around To Looking At His New Haircut When Things Less Hectic',
       content: 'WASHINGTON—Reassuring the rap artist that they would attend to his news in due course, the nation told Canadian rapper Drake Wednesday that they would get around to looking at his new haircut when things were less hectic. “We can tell that you’re excited to share your new look with everyone, but frankly, Drake, this is a really bad time for us—maybe you could repost those pictures in a month or two when things settle down,” said 31-year-old Arkansas resident Kayla Larsen, who echoed the opinions of all 330 million Americans in informing the multi-hyphenate star that while his side-swept bangs were of some public interest, there was simply too much on their plate right now to engage at the moment. “Have you seen the news? As much as we’d love to discuss your new hair style, we’re currently kind of preoccupied. It’s not personal, we promise. Even in terms of celebrity news, your hair isn’t at the front of the queue. Kim Kardashian and Kanye West’s rumored divorce is much more pressing, and if we’re being perfectly honest, you’re behind Olivia Wilde and Harry Styles too.” At press time, Larsen added that, if it was any consolation, Drake’s hair would still take precedence over the anti-democracy crackdowns in Hong Kong.',
       image: faker.image.image()
-    }
+    },
+
     ], {});
 
 
