@@ -1,12 +1,16 @@
 body {
   /* background-image: url("/images/SaltBackground.png"); */
-  /* background-size: cover;
-  background-repeat:repeat; */
+
+  /* background-size: cover;  
   margin: 0;
   /* background-attachment: fixed; */
-  background: linear-gradient(360deg, #000f2d 0%, #012365 100%);
+  background-repeat:no-repeat;
+  background:  linear-gradient(360deg, #000f2d 0%, #012365 100%);
   height: 100%;
-}
+  margin: 0;
+  background-attachment: fixed;
+  }
+
 
 .form-container {
   /* background-color: #00A2FF ; */
