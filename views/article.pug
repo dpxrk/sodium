@@ -1,5 +1,6 @@
 extends layout.pug
-
+append head 
+  link(rel="stylesheet", href="../stylesheets/articles.css")
 
 block content
   body
@@ -12,6 +13,10 @@ block content
       img(src=article.image)
     div
       p #{article.content}
+    div.saltsContainer
+      p.saltCount #{saltsCount.saltsCount}
+      form(method='post' action=article.id)
+        input(type="submit", value="", class="salt") 
     div
       ul
         each comment in comments

@@ -10,7 +10,36 @@ const { asyncHandler, csrfProtection } = require('./utils')
 // Routes to post a new article
 
 
+router.post('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
+  let { email, userId } = req.session.auth;
+  let articleId = parseInt(req.params.id);
+  let saltData = await Salt.findAll({
+    where: {articleId:articleId, userId:userId}    
+  })
+  if (saltData.length == 0) {
+    //Place data into the salt table
+    const saltedUser = Salt.build({articleId:articleId, userId:userId});
+    await saltedUser.save();
+  
+  } else {
+    //Remove data from the salt table
+    const deletedUser = Salt.destroy({where: {articleId:articleId, userId:userId}});
+ 
+  }
 
+  const article = await Article.findByPk(articleId, {
+    include: [Salt, Comment, User]
+  });
+  const comments = await Comment.findAll({
+    where: { id: articleId }
+  });
+  const salts = await Salt.findAll({
+    where: { articleId: articleId }
+  });
+  const saltsCount = { saltsCount:salts.length};
+  console.log(saltsCount);
+  res.render('article', { article, comments , saltsCount });
+}))
 
 router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   //route to get a single post
@@ -27,7 +56,9 @@ router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
     where: { id: articleId }
   })
 
-  res.render('article', { article, comments })
+  const saltsCount = { saltsCount:salts.length};
+  console.log(saltsCount);
+  res.render('article', { article, comments , saltsCount });
 }))
 
 //route to get all articles
