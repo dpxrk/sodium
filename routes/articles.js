@@ -10,8 +10,6 @@ const { asyncHandler, csrfProtection } = require('./utils')
 // Routes to post a new article
 
 
-
-
 router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   //route to get a single post
 
@@ -49,7 +47,7 @@ router.get('/create', requireAuth, csrfProtection, asyncHandler(async (req, res)
 router.post('/create', requireAuth, csrfProtection, asyncHandler(async (req, res) => {
 
   const { title, content, image } = req.body;
-  
+
   const newArticle = await Article.create({
     title: req.body.title,
     content: req.body.content,
