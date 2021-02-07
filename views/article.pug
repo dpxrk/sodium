@@ -1,7 +1,7 @@
 extends layout.pug
 append head 
   link(rel="stylesheet", href="../stylesheets/articles.css")
-
+  script(src="../javascripts/getSaltCount.js") 
 block content
   body
   div.container
@@ -14,8 +14,8 @@ block content
     div
       p #{article.content}
     div.saltsContainer
-      p.saltCount #{saltsCount.saltsCount}
-      form(method='post' action=article.id)
+      p.saltCount 
+      form.saltForm
         input(type="submit", value="", class="salt") 
     div
       ul
