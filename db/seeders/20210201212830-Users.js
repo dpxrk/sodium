@@ -11,7 +11,7 @@ module.exports = {
     const fakerPassword = faker.internet.password();
     const password = await bcrypt.hash("theSixPack!", 10);
     const randomPassword = await bcrypt.hash(fakerPassword, 10);
-
+    //100 fake users
     let users = [
       {
         firstName: "Sean",
@@ -19,7 +19,7 @@ module.exports = {
         email: "sean234@ymail.com",
         passwordHash: password,
         profileImage: avatar.giveMeAnAvatar(),
-        phoneNumber: 4875169582,
+        phoneNumber: faker.phone.phoneNumber(),
       },
       {
         firstName: "Stephanie",
@@ -27,7 +27,7 @@ module.exports = {
         email: "svargas@rocketmail.com",
         passwordHash: password,
         profileImage: avatar.giveMeAnAvatar(),
-        phoneNumber: 5128496526,
+        phoneNumber: faker.phone.phoneNumber(),
       },
       {
         firstName: "demo",
@@ -35,7 +35,7 @@ module.exports = {
         email: "demo.user@demo.com",
         passwordHash: password,
         profileImage: avatar.giveMeAnAvatar(),
-        phoneNumber: 6541254865,
+        phoneNumber: faker.phone.phoneNumber(),
       },
       {
         firstName: faker.name.firstName(),
