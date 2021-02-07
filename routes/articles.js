@@ -12,49 +12,53 @@ const { asyncHandler, csrfProtection } = require('./utils')
 
 
 router.post('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
-  
+
   let clicked = req.body.clicked;
   let articleId = parseInt(req.params.id);
   if(clicked){
     let { email, userId } = req.session.auth;
-    
+
     let saltData = await Salt.findAll({
-      where: {articleId:articleId, userId:userId}    
+      where: {articleId:articleId, userId:userId}
     })
     if (saltData.length === 0) {
       //Place data into the salt table
       const saltedUser = Salt.build({articleId:articleId, userId:userId});
       await saltedUser.save();
-    
+
     } else {
       //Remove data from the salt table
-      const deletedUser = Salt.destroy({where: {articleId:articleId, userId:userId}});
-   
+      const deletedUser = await Salt.destroy({where: {articleId:articleId, userId:userId}});
+
     }
-  
-  } 
+
+  }
     let salts = await Salt.findAll({
         where: { articleId: articleId }
       });
       let saltsCount = { saltsCount:salts.length};
       console.log(saltsCount);
       res.json(saltsCount);
-  
+
+      const comments = await Comment.findAll({
+        where: { id: articleId }
+      })
+
 
   // let { email, userId } = req.session.auth;
   // let articleId = parseInt(req.params.id);
   // let saltData = await Salt.findAll({
-  //   where: {articleId:articleId, userId:userId}    
+  //   where: {articleId:articleId, userId:userId}
   // })
   // if (saltData.length == 0) {
   //   //Place data into the salt table
   //   const saltedUser = Salt.build({articleId:articleId, userId:userId});
   //   await saltedUser.save();
-  
+
   // } else {
   //   //Remove data from the salt table
   //   const deletedUser = Salt.destroy({where: {articleId:articleId, userId:userId}});
- 
+
   // }
 
   // const article = await Article.findByPk(articleId, {
