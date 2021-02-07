@@ -28,8 +28,8 @@ router.post('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
     
     } else {
       //Remove data from the salt table
-      const deletedUser = Salt.destroy({where: {articleId:articleId, userId:userId}});
-   
+      const deletedUser = await Salt.destroy({where: {articleId:articleId, userId:userId}});
+         
     }
   
   } 
