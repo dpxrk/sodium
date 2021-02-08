@@ -1,6 +1,6 @@
 
 window.onload=function(){
-    getSaltCount()
+
     //Add eventListener for the salt button
     let saltButton = document.querySelector(".saltForm");
     saltButton.addEventListener("submit", (event) => {

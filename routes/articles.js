@@ -84,10 +84,6 @@ router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   const comments = await Comment.findAll({
     where: { id: articleId }
   })
-  // const salts = await Salt.findAll({
-  //   where: { id: articleId }
-  // })
-
    res.render('article', { article, comments });
 }))
 
