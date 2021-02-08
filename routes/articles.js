@@ -82,8 +82,9 @@ router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
     include: [Salt, Comment, User]
   })
   const comments = await Comment.findAll({
-    where: { id: articleId }
+    where: { articleId: articleId }
   })
+  console.log(comments)
    res.render('article', { article, comments });
 }))
 

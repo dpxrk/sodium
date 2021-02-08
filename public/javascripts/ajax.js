@@ -13,7 +13,7 @@ window.onload=function(){
     let comment = document.getElementById("comment")
     commentForm.addEventListener("submit", (event) => {
         event.preventDefault();
-        postComment(comment)
+        postComment(comment.value)
     })
 }
 
@@ -34,20 +34,22 @@ let getSaltCount = (clicked=false) => {
 
 const frags = window.location.href.split('/')
 const articleId = frags[frags.length-1]
+console.log(articleId)
 
-const postComment = (comment) => {
+const postComment = (content) => {
     let url = `/api/articles/${articleId}/comments`;
     let method = "POST";
     let headers = {
         "Content-Type":"application/json"
     }
-    let body = JSON.stringify({comment});
+    console.log('_______INSIDE POST_______')
+    let body = JSON.stringify({content});
     fetch(url, { method:method, headers:headers, body:body }).then(
         response => response.json()
         ).then(response => {
         let commentList = document.querySelector(".comment-list");
         let li = document.createElement("li");
-        li.innerText = response;
+        li.innerText = response.content;
         commentList.appendChild(li)
         comment.value = ""
     })
