@@ -21,6 +21,7 @@ footer {
     align-items: center;
     justify-content: center;
     font-weight: 100;
+    border-top: white solid 1px;
 }
 
 .nav-links{
