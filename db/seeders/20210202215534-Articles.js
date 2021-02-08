@@ -12,7 +12,7 @@ module.exports = {
       [
         {
           authorId: Math.floor(Math.random() * numUsers + 1),
-          title:
+          title:git 
             "David Blaine Wakes Up In Cold Sweat From Nightmare In Which He Dies Of Natural Causes",
           content:
             "NEW YORK—Mumbling the words “old age” and “in his sleep” as he thrashed and screamed wildly, illusionist David Blaine reportedly woke up in a cold sweat from a nightmare Friday in which he died of natural causes. “Oh my God, that was terrible; it really felt like I was on my deathbed, passing away painlessly and peacefully while surrounded by friends and family,” said Blaine, wiping perspiration from his brow and reminding himself that he was far more likely to die suffocating handcuffed in a tank of ice-cold water, or falling 30,000 feet from a balloon floating through the troposphere, than from something as insane as heart disease. “I just can’t unsee it. There was no stage. No crowd. No cage. No knives being repeatedly shoved through my stomach, or a school of sharks ripping me limb from limb. It was just me, the doctor, my wife, my children, and my grandchildren. And we were praying. Jesus Christ, I’m really losing it.” At press time, Blaine was reportedly finally able to go back to sleep after taking a few deep breaths, drinking a glass of water, and strapping himself nude to a lightning rod on the roof of his apartment.",
