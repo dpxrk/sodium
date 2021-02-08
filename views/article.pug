@@ -1,7 +1,7 @@
 extends layout.pug
-append head 
+append head
   link(rel="stylesheet", href="../stylesheets/articles.css")
-  script(src="../javascripts/getSaltCount.js") 
+  script(src="../javascripts/ajax.js")
 block content
   body
   div.container
@@ -13,11 +13,15 @@ block content
       img(src=article.image)
     div
       p #{article.content}
+    div.comment-container
+      form.comment-form
+        input(type="string", value="", placeholder="comment")#comment
+        input(type="submit")#comment-button
     div.saltsContainer
-      p.saltCount 
+      p.saltCount
       form.saltForm
-        input(type="submit", value="", class="salt") 
+        input(type="submit", value="", class="salt")
     div
-      ul
+      ul.comment-list
         each comment in comments
           li= comment.content
