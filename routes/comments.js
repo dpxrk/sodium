@@ -19,7 +19,7 @@ router.post('/:articleId/comments', requireAuth, asyncHandler(async (req, res) =
   const comments = await Comment.findAll({
     where: { id: articleId }
   })
-
+ 
 }));
 
 module.exports = router;

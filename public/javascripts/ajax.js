@@ -8,6 +8,7 @@ window.onload=function(){
         event.preventDefault();
     })
     //add eventListener for comments
+
     let commentForm = document.querySelector(".comment-form")
     let comment = document.getElementById("comment")
     commentForm.addEventListener("submit", (event) => {
@@ -31,17 +32,19 @@ let getSaltCount = (clicked=false) => {
     })
 }
 
+const frags = window.location.href.split('/')
+const articleId = frags[frags.length-1]
 
 const postComment = (comment) => {
     let url = `/api/articles/${articleId}/comments`;
     let method = "POST";
     let headers = {
-    "Content-Type":"application/json"
+        "Content-Type":"application/json"
     }
     let body = JSON.stringify({comment});
     fetch(url, { method:method, headers:headers, body:body }).then(
-    response => response.json()
-    ).then(response => {
+        response => response.json()
+        ).then(response => {
         let commentList = document.querySelector(".comment-list");
         let li = document.createElement("li");
         li.innerText = response;
