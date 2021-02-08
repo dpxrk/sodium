@@ -1,17 +1,30 @@
+//- Finished 12:25AM
 extends layout.pug
-
+append head
+  link(rel='stylesheet' href='/stylesheets/create-article.css')
+ 
 block content
-  body
-    form(action="/articles/create" method="POST")
-      input(type='hidden', name='_csrf' value=csrfToken)
+  .create-container
+    .sassy
+      | Leave the sugar out... 
+      br 
+      br
+      | Show the internet your salty side. 
+    .form-container
+      form(action="/articles/create" method="POST")
+        input(type='hidden', name='_csrf' value=csrfToken)
+        div
+          label Title:
+          input(type='TEXTAREA' name='title' placeholder="Type your title here" required)
+        div
+          label Content:
+          textarea(name='content' 
+          placeholder="Write your article here. Don't hold anything back." 
+          required)
+        div
+          label Image URL:
+          input(type='STRING' 
+          placeholder="Paste a link here to a hosted image" 
+          name='image')
       div
-        label Title:
-        input(type='STRING' name='title' required)
-      div
-        label Content:
-        textarea(name='content' required)
-      div
-        label Image Url:
-        input(type='STRING' name='image')
-      div
-        button(type='submit') Create Post
+        button.create(type='submit') Create Post

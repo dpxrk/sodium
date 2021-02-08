@@ -10,24 +10,24 @@
 }
 
 footer {
-    position: relative;
-  bottom: 0;
-  width: 100%;
-  background-color: #000f2d;
-  color: white;
-  text-align: center;
-  height: 3em;
-  display: flex;
-  align-items: center;
-justify-content: center;
-font-weight: 100;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #0045cf;
+    color: white;
+    text-align: center;
+    height: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 100;
 }
 
 .nav-links{
     font-family: Montserrat;
     display: flex;
     padding: 0 10px;
-    width: 400px;
+    /* width: 500px; */
     justify-content: flex-end;
     align-items: center;
 }

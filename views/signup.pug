@@ -1,8 +1,10 @@
+//- Finished 12:25AM
 extends layout
 include util
 append head
   script(src="/javascripts/index.js" type="module" defer)
   link(rel='stylesheet' href='/stylesheets/login-and-signup.css')
+  title="Sodium - Sign Up"
 
 block content
   +validationErrors(errors)
@@ -10,8 +12,7 @@ block content
   .form-container-signup
 
     .form-title Sign Up
-    //- img.logo-container(src="/images/whitelogo.png", alt="")
-    form(action="signup" method="POST")
+    form.form-box(action="signup" method="POST")
       input(type='hidden' name='_csrf' value=csrfToken)
       div
         input(type='string', name='firstName', placeholder='First Name', required)
@@ -33,4 +34,4 @@ block content
       div
         button.login-button(type='submit') Create User
       div
-        a(href='/').login-button Cancel
+        a(href='/').cancel-button Cancel
