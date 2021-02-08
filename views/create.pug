@@ -1,8 +1,18 @@
 extends layout.pug
 
 block content
+
+extends layout
+include util
+append head
+  script(src="/javascripts/index.js" type="module" defer)
+  link(rel='stylesheet' href='/stylesheets/create-article.css')
+
+block content
+  +validationErrors(errors)
   body
-    form(action="/articles/create" method="POST")
+  .form-container
+     form(action="/articles/create" method="POST")
       input(type='hidden', name='_csrf' value=csrfToken)
       div
         label Title:
@@ -15,3 +25,21 @@ block content
         input(type='STRING' name='image')
       div
         button(type='submit') Create Post
+
+
+    .form-title Login
+    //- img.logo-container(src="/images/whitelogo.png", alt="")
+    form(action="login" method="POST")
+      input(type='hidden', name='_csrf' value=csrfToken)
+      div
+        //- label.form-desc Email Address
+        input(type='email' name='email' placeholder='Email Address'
+        required)
+      div
+        //- label.form-desc Password
+        br
+        input(type='password' name='password' placeholder='Password' required)
+      div
+        button.login-button(type='submit') Submit
+
+

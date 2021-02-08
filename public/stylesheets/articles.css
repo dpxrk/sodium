@@ -1,0 +1,39 @@
+.saltsContainer{
+    display:flex;
+    justify-content:flex-end;
+}
+.salt{
+    background:url("/images/SaltIcon.png");
+    background-size:cover;
+    width:60px;
+    height:60px;
+}
+
+.article-wrapper {
+    background-color: #1161d4 ;
+    height: 200px;
+    width: 70%;
+    border-radius: 12px;
+    margin: 10px auto;
+    /* padding: 10px; */
+    overflow: hidden;
+    background-color: white;
+  box-shadow: 1px 1px 10px;
+  display: flex;
+}
+
+ img.articles-page{
+border-radius: 0 0 0 0;
+width: 200px;
+height: 100%;
+
+object-fit: cover;
+ }
+
+ h4.article-title {
+  display: flex;
+  font-weight: 600;
+  font-size: 1.4em;
+  width: 80%;
+  align-items: center;
+}

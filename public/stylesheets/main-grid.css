@@ -13,6 +13,7 @@
 .featured-article {
   /* background-color: blue; */
   grid-area: main-article;
+  margin: 0 auto;
 }
 
 .sidebar-container {
@@ -68,7 +69,11 @@
   height: 350px;
   overflow: hidden;
   z-index: 1;
+<<<<<<< Updated upstream
   background-image: url("/images/SpilledSalt.jpg");
+=======
+  width: min-content;
+>>>>>>> Stashed changes
   background-size: cover;
 }
 
@@ -86,16 +91,19 @@
 
 .main-article-box {
   position: relative;
+  margin: auto ;
   border-radius: 12px;
   background-color: white;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.473);
   padding: 20px;
   margin-top: -100px;
   height: 250px;
+  width: 550px;
   z-index: 2;
-  margin-left: 30px;
-  margin-right: 30px;
+  /* margin-left: 30px;
+  margin-right: 30px; */
   overflow: hidden;
+  align-self: center;
   /* white-space: nowrap; */
   /* text-overflow: ellipsis; */
 }
@@ -121,6 +129,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .salt-counter-number {
@@ -173,7 +182,9 @@
 .latest-article {
     /* display: flex; */
     background-color: white;
-    max-width: 275px;
+    width: 250px;
+    height: 75
+    ;
     display: flex;
     border-radius: 10px;
     /* padding: 5px; */

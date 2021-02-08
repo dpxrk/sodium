@@ -11,6 +11,7 @@
 
 footer {
     position: fixed;
+<<<<<<< Updated upstream
   bottom: 0;
   width: 100%;
   background-color: #000f2d;
@@ -21,13 +22,25 @@ footer {
   align-items: center;
 justify-content: center;
 font-weight: 100;
+=======
+    bottom: 0;
+    width: 100%;
+    background-color: #000f2d;
+    color: white;
+    text-align: center;
+    height: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 100;
+>>>>>>> Stashed changes
 }
 
 .nav-links{
     font-family: Montserrat;
     display: flex;
     padding: 0 10px;
-    width: 400px;
+    /* width: 500px; */
     justify-content: flex-end;
     align-items: center;
 }

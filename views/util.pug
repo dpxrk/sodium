@@ -1,5 +1,35 @@
 mixin article(title, image)
   div.article-wrapper
+<<<<<<< Updated upstream
     h4= title
   div
     img(src=image)
+=======
+    img.articles-page(src=image)
+    a(href="/users/articles/title"): h4.articles-page= title
+
+//- #{article.title}
+mixin validationErrors(errors)
+  if errors
+    div(class='alert-the-error' role='alert')
+      p The following error(s) occurred:
+      ul
+        each error in errors
+          li= error
+
+
+mixin sidebar(title, image, id)
+  .sidebar-article
+            img.sidebar-article-image(src=image, alt="")
+            div
+              .sidebar-article-title= title
+              .sidebar-article-title salt #
+
+
+mixin latest(title, image, id)
+  .latest-article
+        img.latest-article-image(src=image, alt="")
+        div
+        .latest-article-title= title
+          .sidebar-article-title salt #
+>>>>>>> Stashed changes

@@ -9,10 +9,17 @@ block content
       .main-article-container
       .main-article-box
         .freshly-salted Freshly Salted
+<<<<<<< Updated upstream
         .title-author-container   
           a(href="http://www.google.com").article-title A very long headline that we'll interpolate much much much much much later
           .salt-icon-container 
             p.salt-counter-number 87
+=======
+        .title-author-container
+          a(href="http://www.google.com").article-title #{featured.title}
+          .salt-icon-container
+            p.salt-counter-number salt #
+>>>>>>> Stashed changes
             img(src="./images/SaltIcon.png", style={'max-width': '50%','max-height': '50%'})
           //- .author-date-container
           //-   .art-author Author Name 
