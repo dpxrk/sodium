@@ -37,12 +37,9 @@ router.post('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
         where: { articleId: articleId }
       });
       let saltsCount = { saltsCount:salts.length};
-      console.log(saltsCount);
       res.json(saltsCount);
 
-      const comments = await Comment.findAll({
-        where: { id: articleId }
-      })
+
 
 
   // let { email, userId } = req.session.auth;
