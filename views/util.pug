@@ -1,12 +1,18 @@
 mixin article(title, image, id)
   div.article-wrapper
-    h4= title
-  div
-    img(src=image)
-  img.articles-title(src=image)
-  //- Need Interpolation Here
-  a(href="id"): div.articles-titles= title
-//- #{article.title}
+    div
+      img.articles-page(src=image)
+    .text-wrapper
+      //- Need Interpolation Here
+      a(href="id"): div.articles-titles= title
+
+      .author-container Needs Interpolation
+      .body-content Needs Interpolation Needs Interpolation Needs Interpolation Needs Interpolation Needs Interpolation Needs Interpolation Needs Interpolation Interpolation Needs Interpolation Needs Interpolation Needs Interpolation
+      div 
+        a.read-more(href="/article/1"): p.read-more READ MORE
+        //- p.salt-counter-number 87  
+        //-   img(src="./images/SaltIcon.png", style={'max-width': '50%','max-height': '50%'})
+  
 
 mixin validationErrors(errors)
   if errors

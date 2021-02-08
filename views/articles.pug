@@ -2,9 +2,9 @@ extends layout.pug
 append head
   script(src="/javascripts/index.js" type="module" defer)
   link(rel='stylesheet' href='/stylesheets/articles.css')
-  link(rel='stylesheet' href='/stylesheets/main-grid.css')
+  //- link(rel='stylesheet' href='/stylesheets/main-grid.css')
   include util.pug
 block content
-  h1 SodiumArticles
+  .page-title Salt for Life. Every Salty Article on the Sodium.
   each article in articles
     +article(article.title, article.image)
