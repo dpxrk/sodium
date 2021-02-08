@@ -18,22 +18,20 @@
     /* padding: 10px; */
     overflow: hidden;
     background-color: white;
-  box-shadow: 1px 1px 10px;
-  display: flex;
+    box-shadow: 1px 1px 10px;
+    display: flex;
 }
 
  img.articles-page{
 border-radius: 0 0 0 0;
 width: 200px;
 height: 100%;
-
 object-fit: cover;
  }
 
- h4.article-title {
-  display: flex;
-  font-weight: 600;
-  font-size: 1.4em;
-  width: 80%;
-  align-items: center;
+ .articles-titles{
+    padding: 10px;
+    display: flex;
+    font-weight: 600;
+    font-size: 1.5em;
 }

@@ -69,11 +69,10 @@
   height: 350px;
   overflow: hidden;
   z-index: 1;
-<<<<<<< Updated upstream
-  background-image: url("/images/SpilledSalt.jpg");
-=======
   width: min-content;
->>>>>>> Stashed changes
+
+  width: min-content;
+
   background-size: cover;
 }
 

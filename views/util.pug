@@ -1,12 +1,11 @@
-mixin article(title, image)
+mixin article(title, image, id)
   div.article-wrapper
-<<<<<<< Updated upstream
     h4= title
   div
     img(src=image)
-=======
-    img.articles-page(src=image)
-    a(href="/users/articles/title"): h4.articles-page= title
+  img.articles-title(src=image)
+  //- Need Interpolation Here
+  a(href="id"): div.articles-titles= title
 
 //- #{article.title}
 mixin validationErrors(errors)
@@ -32,4 +31,3 @@ mixin latest(title, image, id)
         div
         .latest-article-title= title
           .sidebar-article-title salt #
->>>>>>> Stashed changes
