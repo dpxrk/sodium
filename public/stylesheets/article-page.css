@@ -8,31 +8,58 @@ body {
   background-attachment: fixed;
   }
 
-.page-title {
-    text-align: center;
-    color: white;
-    font-size: 1.8em;
-    font-weight: 600; 
-    padding: 20px 0;
+.wrapper {
+    display: flex;
+    flex-direction: column;
 }
 
-.article-wrapper {
-    background-color: #1161d4 ;
-    height: 200px;
-    width: 70%;
-    border-radius: 12px;
-    margin: 10px auto;
-    /* padding: 10px; */
-    overflow: hidden;
-    background-color: white;
-    box-shadow: 1px 1px 6px;
-    display: flex;
+.page-title {
+    text-align: left;
+    color: white;
+    width: 80%;
+    font-size: 2em;
+    font-weight: 600; 
+    padding: 20px 0;
+    margin: 0 auto;
 }
-img.articles-page{
-    border-radius: 0 0 0 0;
-    width: 200px;
-    height: 100%;
+.comment-title {
+    text-align: left;
+    color: white;
+    /* width: 80%; */
+    font-size: 2em;
+    font-weight: 600; 
+    padding: 20px 0;
+    margin: 0 auto;
+}
+.author-container {
+    color: white;
+    font-weight: 500;
+    font-size: .9em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+img.article-page{
+    border-radius: 12px;
+    box-shadow: 1px 1px 5px rgb(6, 1, 44);
+    width: 50%;
+    max-height: 50%;
     object-fit: cover;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.article-content {
+    color: white;
+    padding: 10px;
+}
+
+.saltsContainer
+{
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    width: 10%;
 }
 
 .text-wrapper {
@@ -50,24 +77,22 @@ img.articles-page{
     font-size: 1.3em;
 }
 
+.comment-container {
 
-.author-container {
-    color: grey;
-    font-weight: 300;
-    font-size: .7em;
-        
-    }
+}
 
-.body-content
-{  text-overflow: ellipsis;
-    display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;  
+input {
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  font-family: Montserrat;
+  font-weight: 400;
   font-size: 1em;
-  width: 100%;
-  color: black;
-  overflow: hidden;}
-
+  width: 60%%;
+  border: 1px solid #012365;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
   .salt-icon-container {
  width: 15%;
   /* background-color: blue; */
@@ -102,3 +127,4 @@ img.articles-page{
     font-size: .9em;
     font-weight: 600;
 }
+

@@ -1,27 +1,25 @@
 extends layout.pug
 append head
-  link(rel="stylesheet", href="../stylesheets/articles.css")
+  link(rel="stylesheet", href="../stylesheets/article-page.css")
   script(src="../javascripts/ajax.js")
 block content
   body
-  div.container
-    div
-      h1 #{article.title}
-    div
-      h6 Written by: #{article.User.firstName} #{article.User.lastName}
-    div
-      img(src=article.image)
-    div
-      p #{article.content}
-    div.comment-container
-      form.comment-form
-        input(type="string", value="", placeholder="comment")#comment
-        input(type="submit")#comment-button
+  .wrapper
+    .page-title #{article.title}
+    .author-container Written by: #{article.User.firstName} #{article.User.lastName}
+    img.article-page(src=article.image)
+    .article-content #{article.content}
+    .comment-container
     div.saltsContainer
       p.saltCount
       form.saltForm
         input(type="submit", value="", class="salt")
-    div
+    .comment-title Leave a Comment
+    form.comment-form
+      input(type="string", value="", placeholder="Leave a comment here")#comment
+      br
+      input(type="submit")#comment-button
+    .page-title Comments
       ul.comment-list
         each comment in comments
           li= comment.content
