@@ -1,14 +1,18 @@
-mixin article(title, image)
+mixin article(title, image, id)
   div.article-wrapper
     h4= title
   div
     img(src=image)
-
+  img.articles-title(src=image)
+  //- Need Interpolation Here
+  a(href="id"): div.articles-titles= title
+//- #{article.title}
 
 mixin validationErrors(errors)
   if errors
     div(class='alert-the-error' role='alert')
-      p The following error(s) occurred:
+      //- This doesn't list errors on my local test. Changed the copy... please fix if you think this is wrong. 
+      p An error occurred. Please enter a correct username/password combination.
       ul
         each error in errors
           li= error
