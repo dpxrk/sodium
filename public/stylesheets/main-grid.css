@@ -1,13 +1,12 @@
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 550px ;
+  grid-template-rows: 550px;
   row-gap: 8px;
   column-gap: 8px;
   grid-template-areas:
     "main-article main-article main-article main-article sidebar sidebar"
-    "latest latest latest latest sidebar sidebar"
-
+    "latest latest latest latest sidebar sidebar";
 }
 
 .featured-article {
@@ -17,10 +16,10 @@
 }
 
 .sidebar-container {
-    color: #012365;
-    font-weight: 600;
-    font-size: 1.2em;
-    grid-area: sidebar;
+  color: #012365;
+  font-weight: 600;
+  font-size: 1.2em;
+  grid-area: sidebar;
 }
 
 .sidebar {
@@ -35,32 +34,30 @@
 }
 
 .sidebar-article {
-    display: flex;
-    background-color: white;
-    border-radius: 10px;
-    padding: 0px;
-    margin: 5px 0px;
-    color: black;
-    overflow: hidden;
-}
-
-.sidebar-article-image {
-    max-width: 100px;
-}
-
-.sidebar-article-title {
-    font-weight: 600;
-    color: black;
-    padding: 2px;
-    font-size: .9em;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;  
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+  padding: 0px;
+  margin: 5px 0px;
+  color: black;
   overflow: hidden;
 }
 
+.sidebar-article-image {
+  max-width: 100px;
+}
 
+.sidebar-article-title {
+  font-weight: 600;
+  color: black;
+  padding: 2px;
+  font-size: 0.9em;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
 .main-article-container {
   position: relative;
@@ -69,11 +66,9 @@
   height: 350px;
   overflow: hidden;
   z-index: 1;
-  width: min-content;
-
-  width: min-content;
-
-  background-size: cover;
+  object-fit: cover;
+  width: 50%;
+  /* background-size: cover; */
 }
 
 .freshly-salted {
@@ -83,14 +78,14 @@
   text-align: center;
   color: white;
   font-weight: 600;
-  padding: 5px ;
+  padding: 5px;
   margin-bottom: 6px;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 .main-article-box {
   position: relative;
-  margin: auto ;
+  margin: auto;
   border-radius: 12px;
   background-color: white;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.473);
@@ -107,11 +102,11 @@
   /* text-overflow: ellipsis; */
 }
 .title-author-container {
-    display: flex;
-    justify-content: space-between;
-    /* /* overflow: hidden; */
-    /* text-overflow: ellipsis; */
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  /* /* overflow: hidden; */
+  /* text-overflow: ellipsis; */
+  margin-bottom: 10px;
 }
 
 .article-title {
@@ -128,7 +123,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .salt-counter-number {
@@ -145,15 +139,15 @@
   /* height: 150px; */
   /* overflow: hidden; */
   /* max-lines: 1; */
-    /* white-space: nowrap; */
-    /* line-clamp: 3; */
-    text-overflow: ellipsis;
-    display: -webkit-box;
+  /* white-space: nowrap; */
+  /* line-clamp: 3; */
+  text-overflow: ellipsis;
+  display: -webkit-box;
   -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;  
+  -webkit-box-orient: vertical;
   overflow: hidden;
 
-/* block-overflow: ellipsis; */
+  /* block-overflow: ellipsis; */
 }
 
 /* .salt-counter {
@@ -165,8 +159,6 @@
   display: flex;
   justify-content: space-between;
 }
-
-
 
 .latest {
   /* background-color: rgb(73, 30, 230); */
@@ -183,38 +175,37 @@
 }
 
 .latest-article {
-    /* display: flex; */
-    background-color: white;
-    width: 500px;
-    height: 75px    ;
-    display: flex;
-    border-radius: 10px;
-    /* padding: 5px; */
-    margin: 5px 10px;
-    color: black;
-    overflow: hidden;
-    z-index: 0;
-    box-shadow: 1px 1px 5px 012365;
+  /* display: flex; */
+  background-color: white;
+  width: 500px;
+  height: 75px;
+  display: flex;
+  border-radius: 10px;
+  /* padding: 5px; */
+  margin: 5px 10px;
+  color: black;
+  overflow: hidden;
+  z-index: 0;
+  box-shadow: 1px 1px 5px 012365;
 }
 
 .latest-article-image {
-    max-width: 100%;
-    max-height: 100%;
-    flex-shrink:0
-    
+  max-width: 100%;
+  max-height: 100%;
+  flex-shrink: 0;
 }
 
 .latest-article-title {
-  background-color: white;  
+  background-color: white;
   font-weight: 600;
-    color: black;
-    padding: 4px;
-    
-    font-size: .9em;
-    text-overflow: ellipsis;
-    display: -webkit-box;
+  color: black;
+  padding: 4px;
+
+  font-size: 0.9em;
+  text-overflow: ellipsis;
+  display: -webkit-box;
   -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;  
+  -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
@@ -225,7 +216,6 @@
   border-radius: 4px;
   margin: 5px;
 }
-
 
 .art-author {
   display: flex;

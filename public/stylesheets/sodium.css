@@ -1,114 +1,113 @@
+* {
+  box-sizing: border-box;
+}
+
 .page-wrap {
-    max-width: 1024px;
-    margin: 0 auto;
-    padding: 0 10px;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 10px;
 }
 
 .bg {
-    background-color: #012365;
-
+  background-color: #012365;
 }
 
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #0045cf;
-    color: white;
-    text-align: center;
-    height: 3em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 100;
-    border-top: white solid 1px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #0045cf;
+  color: white;
+  text-align: center;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 100;
+  border-top: white solid 1px;
 }
 
-.nav-links{
-    font-family: Montserrat;
-    display: flex;
-    padding: 0 10px;
-    /* width: 500px; */
-    justify-content: flex-end;
-    align-items: center;
+.nav-links {
+  font-family: Montserrat;
+  display: flex;
+  padding: 0 10px;
+  /* width: 500px; */
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .button-style {
-    font-family: Montserrat;
-    font-weight: 500;
-    height: 2em;
-    padding: 0 20px;
-    margin: 0 10px;
-    border-radius: 12px;
-    background-color:transparent;
-    border:white solid 1px;
-    color: white;
-    cursor: pointer;
-    
+  font-family: Montserrat;
+  font-weight: 500;
+  height: 2em;
+  padding: 0 20px;
+  margin: 0 10px;
+  border-radius: 12px;
+  background-color: transparent;
+  border: white solid 1px;
+  color: white;
+  cursor: pointer;
 }
 
 .navlogo {
-    box-sizing: content-box;
-    max-height: 30px;
-    padding: 5px;
+  box-sizing: content-box;
+  max-height: 30px;
+  padding: 5px;
 }
 
 .avatar-nav {
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
 }
 
 nav {
-    background-color: #012365;
-    display: flex;
-    justify-content: space-between;
-    color: white;
-    font-family: Montserrat;
-    font-weight: 600;
-    position: sticky;
-    align-items: center;
-    margin: 0 auto;
-    max-width: 1024px;
+  background-color: #012365;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-family: Montserrat;
+  font-weight: 600;
+  position: sticky;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1024px;
 }
 
-
-
 p {
-    font-family: Montserrat;
-    font-weight: 400;
+  font-family: Montserrat;
+  font-weight: 400;
 }
 
 h1 {
-    font-family: Montserrat;
-    font-weight: 600;
-    color: #000000;
+  font-family: Montserrat;
+  font-weight: 600;
+  color: #000000;
 }
 
 a:link {
-text-decoration: none;
+  text-decoration: none;
 }
 
 /* visited link */
 a:visited {
-text-decoration: none;
+  text-decoration: none;
 }
 
 a:hover {
-text-decoration: underline;
+  text-decoration: underline;
 }
-
 
 button:focus {
-    outline: none;
+  outline: none;
 }
 button:hover {
-    background-color: white;
-    color: #000f2d;
-transition: 0.3s;}
+  background-color: white;
+  color: #000f2d;
+  transition: 0.3s;
+}
 button:active {
-    background-color: white;
-    color: #000f2d;
-    transform: scale(.9);
-
+  background-color: white;
+  color: #000f2d;
+  transform: scale(0.9);
 }
