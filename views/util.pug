@@ -1,40 +1,41 @@
-mixin article(title, image, id)
+mixin article(title, user, content, image, id, salts)
   div.article-wrapper
     div
       img.articles-page(src=image)
     .text-wrapper
       //- Need Interpolation Here
-      a(href="id"): div.articles-titles= title
+      a(href=`/articles/${id}`): div.articles-titles= title
 
-      .author-container Needs Interpolation
-      .body-content Needs Interpolation Needs Interpolation Needs Interpolation Needs Interpolation Needs Interpolation Needs Interpolation Needs Interpolation Interpolation Needs Interpolation Needs Interpolation Needs Interpolation
-      div 
-        a.read-more(href="/article/1"): p.read-more READ MORE
-        //- p.salt-counter-number 87  
+      .author-container by #{user.firstName} #{user.lastName}
+      .body-content #{content}
+      div
+        a.read-more(href=`/articles/${id}`): p.read-more READ MORE
+        p.salt-counter-number #{salts.length}
         //-   img(src="./images/SaltIcon.png", style={'max-width': '50%','max-height': '50%'})
-  
+
 
 mixin validationErrors(errors)
   if errors
     div(class='alert-the-error' role='alert')
-      //- This doesn't list errors on my local test. Changed the copy... please fix if you think this is wrong. 
+      //- This doesn't list errors on my local test. Changed the copy... please fix if you think this is wrong.
       p An error occurred. Please enter a correct username/password combination.
       ul
         each error in errors
           li= error
 
 
-mixin sidebar(title, image, id)
+mixin sidebar(title, image, id, salts)
   .sidebar-article
-            img.sidebar-article-image(src=image, alt="")
-            div
-              .sidebar-article-title= title
-              .sidebar-article-title salt #
+            a.sidebar-article(href=`/articles/${id}`)
+              img.sidebar-article-image(src=image, alt="")
+              div
+                .sidebar-article-title= title
+                .sidebar-article-title salt ##{salts.length}
 
 
-mixin latest(title, image, id)
+mixin latest(title, image, id, salts)
   .latest-article
         img.latest-article-image(src=image, alt="")
         div
         .latest-article-title= title
-          .sidebar-article-title salt #
+          .sidebar-article-title salt ##{salts.length}

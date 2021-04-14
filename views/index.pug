@@ -13,7 +13,7 @@ block content
       .main-article-box
         .freshly-salted Freshly Salted
         .title-author-container
-          a(href="http://www.google.com").article-title #{featured.title}
+          a(href=`/articles/${featured.id}`).article-title #{featured.title}
           .salt-icon-container
             p.salt-counter-number 87
             img(src="./images/SaltIcon.png", style={'max-width': '50%','max-height': '50%'})
@@ -21,15 +21,14 @@ block content
           //-   .art-author Author Name
           //-   .art-author Date Created
         .art-summary #{featured.content}
-        a(href="http://www.google.com"): p Read More
+        a(href=`/articles/${featured.id}`): p Read More
 
     .sidebar-container
       h1 #SuperSalty
       .sidebar
         each randomArticle in randomArticles
-          +sidebar(randomArticle.title, randomArticle.image, randomArticle.id)
+          +sidebar(randomArticle.title, randomArticle.image, randomArticle.id, randomArticle.Salts)
 
     .latest
       each latestArticle in latestArticles
-          +sidebar(latestArticle.title, latestArticle.image, latestArticle.id)
-
+          +sidebar(latestArticle.title, latestArticle.image, latestArticle.id, latestArticle.Salts)
