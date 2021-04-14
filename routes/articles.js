@@ -104,7 +104,6 @@ router.get(
     const articles = await Article.findAll({
       include: [Salt, Comment, User],
     });
-    // console.log("ALL ARTICLES ++++++++++++++", articles)
     res.render("articles", { articles });
   })
 );
@@ -128,9 +127,9 @@ router.post(
     const { title, content, image } = req.body;
 
     const newArticle = await Article.create({
-      title: req.body.title,
-      content: req.body.content,
-      image: req.body.image,
+      title: title,
+      content: content,
+      image: image,
       authorId: req.session.auth.userId,
     });
 
