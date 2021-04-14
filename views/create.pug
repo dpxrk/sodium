@@ -2,29 +2,30 @@
 extends layout.pug
 append head
   link(rel='stylesheet' href='/stylesheets/create-article.css')
- 
+
 block content
   .create-container
     .sassy
-      | Leave the sugar out... 
-      br 
+      | Leave the sugar out...
       br
-      | Show the internet your salty side. 
+      br
+      | Show the internet your salty side.
     .form-container
-      form(action="/articles/create" method="POST")
+      form(action="create" method="POST")
         input(type='hidden', name='_csrf' value=csrfToken)
         div
           label Title:
           input(type='TEXTAREA' name='title' placeholder="Type your title here" required)
         div
           label Content:
-          textarea(name='content' 
-          placeholder="Write your article here. Don't hold anything back." 
+          textarea(name='content'
+          placeholder="Write your article here. Don't hold anything back."
           required)
         div
           label Image URL:
-          input(type='STRING' 
-          placeholder="Paste a link here to a hosted image" 
-          name='image')
-      div
-        button.create(type='submit') Create Post
+          input(type='STRING'
+          placeholder="Paste a link here to a hosted image"
+          name='image'
+          required)
+        div
+          button.create(type='submit') Create Post
