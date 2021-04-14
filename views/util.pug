@@ -28,7 +28,7 @@ mixin sidebar(title, image, id, salts)
   .sidebar-article
             a.sidebar-article(href=`/articles/${id}`)
               img.sidebar-article-image(src=image, alt="")
-              div
+              div.sidebar-article-div
                 .sidebar-article-title= title
                 .sidebar-article-title salt ##{salts.length}
 

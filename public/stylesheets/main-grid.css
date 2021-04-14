@@ -1,11 +1,11 @@
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 550px;
+  grid-template-rows: auto;
   row-gap: 8px;
   column-gap: 8px;
   grid-template-areas:
-    "main-article main-article main-article main-article sidebar sidebar"
+    "main-article main-article . . sidebar sidebar"
     "latest latest latest latest sidebar sidebar";
 }
 
@@ -67,8 +67,12 @@
   overflow: hidden;
   z-index: 1;
   object-fit: cover;
-  width: 50%;
   /* background-size: cover; */
+}
+.main-article-image {
+  object-fit: cover;
+  width: auto;
+  max-width: 605px;
 }
 
 .freshly-salted {
@@ -117,9 +121,13 @@
   align-items: center;
 }
 
+.sidebar-article {
+  width: 100%;
+  object-fit: cover;
+}
+
 .salt-icon-container {
   width: 15%;
-  /* background-color: blue; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,25 +143,17 @@
   font-weight: 300;
   font-size: 1em;
   max-height: 80px;
-  /* width: 30ch; */
-  /* height: 150px; */
-  /* overflow: hidden; */
-  /* max-lines: 1; */
-  /* white-space: nowrap; */
-  /* line-clamp: 3; */
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-
-  /* block-overflow: ellipsis; */
 }
 
-/* .salt-counter {
-    display: flex;
-    align-items: center; */
-/* } */
+.salt-counter {
+  display: flex;
+  align-items: center;
+}
 
 .author-date-container {
   display: flex;

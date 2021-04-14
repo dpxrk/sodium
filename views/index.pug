@@ -9,17 +9,14 @@ block content
 
     .featured-article
       .main-article-container
-        img(src= featured.image)
+        img(src= featured.image).main-article-image
       .main-article-box
         .freshly-salted Freshly Salted
         .title-author-container
           a(href=`/articles/${featured.id}`).article-title #{featured.title}
           .salt-icon-container
-            p.salt-counter-number 87
+            p.salt-counter-number #{featured.Salts.length}
             img(src="./images/SaltIcon.png", style={'max-width': '50%','max-height': '50%'})
-          //- .author-date-container
-          //-   .art-author Author Name
-          //-   .art-author Date Created
         .art-summary #{featured.content}
         a(href=`/articles/${featured.id}`): p Read More
 
