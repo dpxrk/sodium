@@ -4,8 +4,7 @@ const { Article } = require("../models");
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    let userNum = await User.count();
-    let articleNum = await Article.count();
+
 
     return queryInterface.bulkInsert(
       "Salts",
